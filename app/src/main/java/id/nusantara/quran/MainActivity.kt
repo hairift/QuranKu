@@ -8,10 +8,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import dagger.hilt.android.AndroidEntryPoint
 import id.nusantara.quran.inti.navigasi.GrafNavigasi
 import id.nusantara.quran.inti.ui.tema.TemaNusantara
 
 /** Aktivitas utama dengan satu alur Compose. */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(keadaan: Bundle?) {
         super.onCreate(keadaan)
