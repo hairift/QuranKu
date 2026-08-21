@@ -26,8 +26,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -37,6 +39,15 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.rotate
 import id.nusantara.quran.inti.util.KompasKiblat
+import id.nusantara.quran.data.remote.api.ApiJadwalSholat
+import id.nusantara.quran.data.remote.model.WaktuSholat
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlin.math.roundToInt
 
 /** Layar jadwal azan dan arah kiblat yang bekerja tanpa izin lokasi. */
@@ -44,6 +55,7 @@ import kotlin.math.roundToInt
 fun TampilanNusantara(modifier: Modifier = Modifier, onKembali: () -> Unit = {}) {
     val konteks = LocalContext.current
     var arahPonsel by remember { mutableFloatStateOf(0f) }
+    var waktu by remember { mutableStateOf(WaktuSholat()) }
     val sensorManager = remember { konteks.getSystemService(SensorManager::class.java) }
     DisposableEffect(sensorManager) {
         val sensor = sensorManager?.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
@@ -61,6 +73,14 @@ fun TampilanNusantara(modifier: Modifier = Modifier, onKembali: () -> Unit = {})
         onDispose { sensorManager?.unregisterListener(pendengar) }
     }
     val arahKiblat = KompasKiblat.arah(-6.2, 106.8)
+    LaunchedEffect(Unit) {
+        waktu = withContext(Dispatchers.IO) {
+            runCatching {
+                val api = Retrofit.Builder().baseUrl("https://api.myquran.com/").addConverterFactory(MoshiConverterFactory.create()).build().create(ApiJadwalSholat::class.java)
+                api.jadwal("1301", SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())).data?.jadwal ?: WaktuSholat()
+            }.getOrDefault(WaktuSholat("04:42", "12:02", "15:23", "17:56", "19:08"))
+        }
+    }
     Column(modifier.fillMaxSize().padding(22.dp)) {
         IconButton(onClick = onKembali) { Icon(Icons.Rounded.ArrowBack, "Kembali") }
         Text("Ruang Nusantara", style = MaterialTheme.typography.headlineMedium)
@@ -77,8 +97,8 @@ fun TampilanNusantara(modifier: Modifier = Modifier, onKembali: () -> Unit = {})
             }
         }
         Text("Jadwal azan hari ini · Jakarta", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 22.dp, bottom = 8.dp))
-        LazyColumn { items(listOf("Subuh" to "04:42", "Dzuhur" to "12:02", "Ashar" to "15:23", "Maghrib" to "17:56", "Isya" to "19:08")) { (nama, waktu) ->
-            Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween) { Text(nama); Text(waktu, color = MaterialTheme.colorScheme.primary) }
+        LazyColumn { items(listOf("Subuh" to waktu.subuh, "Dzuhur" to waktu.dzuhur, "Ashar" to waktu.ashar, "Maghrib" to waktu.maghrib, "Isya" to waktu.isya)) { (nama, jam) ->
+            Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween) { Text(nama); Text(jam, color = MaterialTheme.colorScheme.primary) }
         } }
     }
 }

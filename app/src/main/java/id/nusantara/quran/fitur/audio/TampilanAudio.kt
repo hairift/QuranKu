@@ -16,6 +16,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.platform.LocalContext
+import androidx.media3.common.MediaItem
+import androidx.media3.exoplayer.ExoPlayer
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -24,6 +28,9 @@ import androidx.compose.ui.unit.dp
 fun TampilanAudio(modifier: Modifier = Modifier) {
     var diputar by remember { mutableStateOf(false) }
     var qari by remember { mutableStateOf("Mishary Alafasy") }
+    val konteks = LocalContext.current
+    val pemutar = remember { ExoPlayer.Builder(konteks).build() }
+    DisposableEffect(pemutar) { onDispose { pemutar.release() } }
     Column(modifier.fillMaxSize().padding(22.dp)) {
         Icon(Icons.Rounded.GraphicEq, "Audio")
         Text("Murottal QuranKu", modifier = Modifier.padding(top = 12.dp))
@@ -33,7 +40,15 @@ fun TampilanAudio(modifier: Modifier = Modifier) {
             androidx.compose.material3.FilterChip(qari == "Mishary Alafasy", { qari = "Mishary Alafasy" }, { Text("Mishary") })
             androidx.compose.material3.FilterChip(qari == "Abdul Basit", { qari = "Abdul Basit" }, { Text("Abdul Basit") })
         }
-        Button(onClick = { diputar = !diputar }, modifier = Modifier.padding(top = 22.dp)) { Icon(Icons.Rounded.PlayArrow, "Putar atau jeda"); Text(if (diputar) "  Jeda Al-Baqarah" else "  Putar Al-Baqarah") }
+        Button(onClick = {
+            if (diputar) pemutar.pause() else {
+                val qariId = if (qari == "Mishary Alafasy") "Alafasy_128kbps" else "Abdul_Basit_Murattal_192kbps"
+                pemutar.setMediaItem(MediaItem.fromUri("https://everyayah.com/data/$qariId/002001.mp3"))
+                pemutar.prepare()
+                pemutar.play()
+            }
+            diputar = !diputar
+        }, modifier = Modifier.padding(top = 22.dp)) { Icon(Icons.Rounded.PlayArrow, "Putar atau jeda"); Text(if (diputar) "  Jeda Al-Baqarah" else "  Putar Al-Baqarah") }
         Text(if (diputar) "Sedang memutar ayat pilihan." else "Pemutar siap digunakan.", modifier = Modifier.padding(top = 18.dp))
     }
 }

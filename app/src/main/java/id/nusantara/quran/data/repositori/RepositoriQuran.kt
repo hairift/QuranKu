@@ -14,4 +14,6 @@ class RepositoriQuran @Inject constructor(private val dao: DaoQuran) {
     suspend fun cari(kata: String): List<EntitasAyat> = dao.cariAyat(kata)
     fun bookmark(): Flow<List<EntitasBookmark>> = dao.alurBookmark()
     suspend fun simpanBookmark(data: EntitasBookmark) = dao.simpanBookmark(data)
+    suspend fun hapusBookmark(data: EntitasBookmark) = dao.hapusBookmark(data)
+    suspend fun ubahCatatan(id: Long, judul: String, isi: String) = dao.ubahCatatan(id, judul, isi)
 }

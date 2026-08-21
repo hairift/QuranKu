@@ -19,4 +19,5 @@ interface DaoQuran {
     @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun simpanAyat(data: List<EntitasAyat>)
     @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun simpanBookmark(data: EntitasBookmark)
     @Delete suspend fun hapusBookmark(data: EntitasBookmark)
+    @Query("UPDATE bookmark SET judulCatatan = :judul, isiCatatan = :isi WHERE id = :id") suspend fun ubahCatatan(id: Long, judul: String, isi: String)
 }
