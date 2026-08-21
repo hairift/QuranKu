@@ -1,0 +1,22 @@
+name: Pemeriksaan Android
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  bangun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v4
+      - name: Siapkan Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Siapkan Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Bangun APK debug
+        run: ./gradlew assembleDebug
