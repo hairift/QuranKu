@@ -20,4 +20,11 @@ interface DaoQuran {
     @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun simpanBookmark(data: EntitasBookmark)
     @Delete suspend fun hapusBookmark(data: EntitasBookmark)
     @Query("UPDATE bookmark SET judulCatatan = :judul, isiCatatan = :isi WHERE id = :id") suspend fun ubahCatatan(id: Long, judul: String, isi: String)
+    @Query("SELECT * FROM riwayat ORDER BY waktu DESC LIMIT :batas") fun alurRiwayat(batas: Int = 100): Flow<List<EntitasRiwayat>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun simpanRiwayat(data: EntitasRiwayat)
+    @Query("DELETE FROM riwayat WHERE surah = :surah AND ayat = :ayat") suspend fun hapusRiwayat(surah: Int, ayat: Int)
+    @Query("DELETE FROM riwayat") suspend fun bersihkanRiwayat()
+    @Query("SELECT * FROM bookmark ORDER BY tanggalDibuat DESC") suspend fun daftarBookmarkSekali(): List<EntitasBookmark>
+    @Query("SELECT * FROM riwayat ORDER BY waktu DESC") suspend fun daftarRiwayatSekali(): List<EntitasRiwayat>
+    @Query("DELETE FROM bookmark") suspend fun bersihkanBookmark()
 }

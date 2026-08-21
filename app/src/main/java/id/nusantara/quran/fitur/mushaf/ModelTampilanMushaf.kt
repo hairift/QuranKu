@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import id.nusantara.quran.data.lokal.PengaturanAplikasi
 import id.nusantara.quran.data.lokal.SumberDataLokal
 import id.nusantara.quran.data.lokal.entitas.EntitasBookmark
+import id.nusantara.quran.data.lokal.entitas.EntitasRiwayat
 import id.nusantara.quran.data.repositori.RepositoriQuran
 import id.nusantara.quran.domain.model.ModelAyat
 import id.nusantara.quran.domain.model.ModelSurah
@@ -70,9 +71,13 @@ class ModelTampilanMushaf @Inject constructor(
         _ayat.value = emptyList()
     }
 
-    /** Menyimpan posisi baca terakhir agar bisa dilanjutkan dari beranda. */
+    /** Menyimpan posisi baca terakhir sekaligus mencatat riwayat bacaan. */
     fun catatPosisiBaca(surah: Int, ayat: Int) {
-        viewModelScope.launch { pengaturan.aturPosisiBaca(surah, ayat) }
+        viewModelScope.launch {
+            pengaturan.aturPosisiBaca(surah, ayat)
+            val nama = sumber.daftarSurah().firstOrNull { it.nomor == surah }?.namaLatin ?: ""
+            repositori.simpanRiwayat(EntitasRiwayat(surah = surah, ayat = ayat, namaSurah = nama))
+        }
     }
 
     /** Menambah atau menghapus bookmark satu ayat. */

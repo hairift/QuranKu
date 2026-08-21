@@ -3,6 +3,7 @@ package id.nusantara.quran.data.repositori
 import id.nusantara.quran.data.lokal.dao.DaoQuran
 import id.nusantara.quran.data.lokal.entitas.EntitasAyat
 import id.nusantara.quran.data.lokal.entitas.EntitasBookmark
+import id.nusantara.quran.data.lokal.entitas.EntitasRiwayat
 import id.nusantara.quran.data.lokal.entitas.EntitasSurah
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -16,4 +17,11 @@ class RepositoriQuran @Inject constructor(private val dao: DaoQuran) {
     suspend fun simpanBookmark(data: EntitasBookmark) = dao.simpanBookmark(data)
     suspend fun hapusBookmark(data: EntitasBookmark) = dao.hapusBookmark(data)
     suspend fun ubahCatatan(id: Long, judul: String, isi: String) = dao.ubahCatatan(id, judul, isi)
+    fun riwayat(batas: Int = 100): Flow<List<EntitasRiwayat>> = dao.alurRiwayat(batas)
+    suspend fun simpanRiwayat(data: EntitasRiwayat) = dao.simpanRiwayat(data)
+    suspend fun hapusRiwayat(surah: Int, ayat: Int) = dao.hapusRiwayat(surah, ayat)
+    suspend fun bersihkanRiwayat() = dao.bersihkanRiwayat()
+    suspend fun semuaBookmark(): List<EntitasBookmark> = dao.daftarBookmarkSekali()
+    suspend fun semuaRiwayat(): List<EntitasRiwayat> = dao.daftarRiwayatSekali()
+    suspend fun bersihkanBookmark() = dao.bersihkanBookmark()
 }

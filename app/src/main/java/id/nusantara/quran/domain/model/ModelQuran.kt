@@ -35,6 +35,34 @@ data class ModelKategoriTematik(
 /** Satu butir tematik berisi judul dan daftar rujukan ayat. */
 data class ModelButirTematik(val judul: String, val rujukan: List<Pair<Int, Int>>)
 
+/** Satu butir Quran & Sains: fenomena ilmiah beserta rujukan ayatnya. */
+data class ModelButirSains(
+    val judul: String,
+    val ringkasan: String,
+    val rujukan: List<Pair<Int, Int>>,
+)
+
+/** Satu topik pada penjelajah topik: judul dan daftar rujukan ayat. */
+data class ModelTopik(val judul: String, val rujukan: List<Pair<Int, Int>>)
+
+/** Kelompok topik, baik kategori umum maupun berdasarkan suasana hati. */
+data class ModelKategoriTopik(
+    val id: String,
+    val judul: String,
+    val deskripsi: String,
+    val topik: List<ModelTopik>,
+)
+
+/** Bacaan unggulan: surah atau ayat tertentu yang dianjurkan pada waktu tertentu. */
+data class ModelBacaanUnggulan(
+    val id: String,
+    val judul: String,
+    val deskripsi: String,
+    val rekomendasi: String,
+    val surah: Int,
+    val ayat: Int = 0,
+)
+
 /** Waktu lima sholat wajib dalam sehari. */
 data class ModelWaktuSholat(
     val subuh: String = "-",

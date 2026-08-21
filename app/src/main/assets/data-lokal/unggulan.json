@@ -1,0 +1,100 @@
+{
+  "item": [
+    {
+      "id": "alkahfi",
+      "judul": "Surah Al-Kahfi",
+      "deskripsi": "Dibaca setiap hari Jumat. Rasulullah bersabda barangsiapa membacanya pada hari Jumat akan disinari cahaya di antara dua Jumat.",
+      "rekomendasi": "Hari Jumat",
+      "surah": 18,
+      "ayat": 0
+    },
+    {
+      "id": "yasin",
+      "judul": "Surah Yasin",
+      "deskripsi": "Disebut sebagai jantung Al-Quran. Umum dibaca di pagi hari dan saat mendoakan keluarga yang telah wafat.",
+      "rekomendasi": "Pagi hari",
+      "surah": 36,
+      "ayat": 0
+    },
+    {
+      "id": "almulk",
+      "judul": "Surah Al-Mulk",
+      "deskripsi": "Dibaca sebelum tidur. Dijanjikan menjadi pembela dan penyelamat dari azab kubur bagi pembacanya.",
+      "rekomendasi": "Sebelum tidur",
+      "surah": 67,
+      "ayat": 0
+    },
+    {
+      "id": "ayatkursi",
+      "judul": "Ayat Kursi",
+      "deskripsi": "Ayat paling agung dalam Al-Quran (QS Al-Baqarah: 255). Dianjurkan dibaca setelah sholat wajib dan sebelum tidur.",
+      "rekomendasi": "Setelah sholat & sebelum tidur",
+      "surah": 2,
+      "ayat": 255
+    },
+    {
+      "id": "arrahman",
+      "judul": "Surah Ar-Rahman",
+      "deskripsi": "Dikenal sebagai pengantin Al-Quran, berisi perincian nikmat Allah yang diulang 31 kali: 'Maka nikmat Tuhanmu yang manakah yang kamu dustakan?'",
+      "rekomendasi": "Kapan saja",
+      "surah": 55,
+      "ayat": 0
+    },
+    {
+      "id": "alwaqiah",
+      "judul": "Surah Al-Waqiah",
+      "deskripsi": "Dibiasakan dibaca setiap malam. Para ulama menyebutnya sebagai surah pembuka pintu rezeki dan penjaga dari kefakiran.",
+      "rekomendasi": "Malam hari",
+      "surah": 56,
+      "ayat": 0
+    },
+    {
+      "id": "addhuha",
+      "judul": "Surah Ad-Dhuha",
+      "deskripsi": "Surah penenang hati yang diturunkan untuk menghibur Rasulullah. Cocok dibaca di pagi hari untuk memulai aktivitas dengan lapang.",
+      "rekomendasi": "Pagi hari",
+      "surah": 93,
+      "ayat": 0
+    },
+    {
+      "id": "alinsyirah",
+      "judul": "Surah Al-Insyirah",
+      "deskripsi": "Surah kelapangan dada. Menegaskan bahwa bersama kesulitan selalu ada kemudahan, dibaca saat hati terasa sempit.",
+      "rekomendasi": "Saat hati sempit",
+      "surah": 94,
+      "ayat": 0
+    },
+    {
+      "id": "assajdah",
+      "judul": "Surah As-Sajdah",
+      "deskripsi": "Rasulullah tidak tidur sebelum membaca As-Sajdah dan Al-Mulk. Teman baik Al-Mulk untuk menutup malam.",
+      "rekomendasi": "Sebelum tidur",
+      "surah": 32,
+      "ayat": 0
+    },
+    {
+      "id": "alfatihah",
+      "judul": "Surah Al-Fatihah",
+      "deskripsi": "Pembuka Al-Quran sekaligus induk kitab (Ummul Kitab). Rukun sholat yang dibaca minimal 17 kali sehari.",
+      "rekomendasi": "Setiap sholat",
+      "surah": 1,
+      "ayat": 0
+    },
+    {
+      "id": "tigaqul",
+      "judul": "Tiga Qul (Ikhlas, Falaq, An-Nas)",
+      "deskripsi": "Al-Ikhlas, Al-Falaq, dan An-Nas. Dianjurkan dibaca pagi dan petang sebagai benteng perlindungan diri.",
+      "rekomendasi": "Pagi & petang",
+      "surah": 112,
+      "ayat": 0
+    },
+    {
+      "id": "baqarahakhir",
+      "judul": "Penutup Al-Baqarah",
+      "deskripsi": "Dua ayat terakhir Surah Al-Baqarah (285-286). Barangsiapa membacanya pada malam hari, keduanya mencukupinya.",
+      "rekomendasi": "Malam hari",
+      "surah": 2,
+      "ayat": 285
+    }
+  ]
+}

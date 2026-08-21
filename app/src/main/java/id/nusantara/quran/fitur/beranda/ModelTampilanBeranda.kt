@@ -5,8 +5,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.nusantara.quran.data.lokal.PengaturanAplikasi
 import id.nusantara.quran.data.lokal.SumberDataLokal
+import id.nusantara.quran.data.lokal.entitas.EntitasRiwayat
+import id.nusantara.quran.data.repositori.RepositoriQuran
 import id.nusantara.quran.data.repositori.RepositoriSholat
 import id.nusantara.quran.domain.model.ModelAyat
+import id.nusantara.quran.domain.model.ModelBacaanUnggulan
 import id.nusantara.quran.domain.model.ModelSurah
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,6 +29,7 @@ import javax.inject.Inject
 class ModelTampilanBeranda @Inject constructor(
     private val sumber: SumberDataLokal,
     private val repositoriSholat: RepositoriSholat,
+    private val repositoriQuran: RepositoriQuran,
     private val pengaturan: PengaturanAplikasi,
 ) : ViewModel() {
 
@@ -54,6 +58,13 @@ class ModelTampilanBeranda @Inject constructor(
 
     val namaKota = pengaturan.namaKota.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), "Kota Jakarta")
 
+    /** Tiga riwayat bacaan terakhir untuk pratinjau di beranda. */
+    val riwayatTerakhir: StateFlow<List<EntitasRiwayat>> =
+        repositoriQuran.riwayat(3).stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    private val _unggulan = MutableStateFlow<List<ModelBacaanUnggulan>>(emptyList())
+    val unggulan: StateFlow<List<ModelBacaanUnggulan>> = _unggulan.asStateFlow()
+
     init {
         viewModelScope.launch {
             val ayat = sumber.ayatHarian()
@@ -61,6 +72,9 @@ class ModelTampilanBeranda @Inject constructor(
             _surahAyatHarian.value = ayat?.let { a ->
                 sumber.daftarSurah().firstOrNull { it.nomor == a.surah }
             }
+        }
+        viewModelScope.launch {
+            _unggulan.value = sumber.daftarUnggulan().take(6)
         }
         // Muat jadwal lalu segarkan hitung mundur setiap menit.
         viewModelScope.launch {

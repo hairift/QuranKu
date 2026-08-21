@@ -26,3 +26,12 @@ data class EntitasBookmark(@PrimaryKey(autoGenerate = true) val id: Long = 0, va
 /** Metadata berkas audio yang telah dicache. */
 @Entity(tableName = "audio_cache")
 data class EntitasAudioCache(@PrimaryKey val id: String, val qari: String, val lokasiBerkas: String, val ukuranBerkas: Long)
+
+/** Riwayat bacaan pengguna: ayat terakhir yang dikunjungi per surah-ayat. */
+@Entity(tableName = "riwayat", primaryKeys = ["surah", "ayat"])
+data class EntitasRiwayat(
+    val surah: Int,
+    val ayat: Int,
+    val namaSurah: String = "",
+    val waktu: Long = System.currentTimeMillis(),
+)

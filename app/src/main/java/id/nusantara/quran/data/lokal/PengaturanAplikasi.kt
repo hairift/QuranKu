@@ -37,6 +37,7 @@ class PengaturanAplikasi @Inject constructor(@ApplicationContext private val kon
         private val KUNCI_AYAT_TERAKHIR = intPreferencesKey("ayat_terakhir")
         private val KUNCI_UKURAN_ARAB = intPreferencesKey("ukuran_arab")
         private val KUNCI_UKURAN_TERJEMAHAN = intPreferencesKey("ukuran_terjemahan")
+        private val KUNCI_BAHASA = stringPreferencesKey("bahasa_aplikasi")
     }
 
     val temaGelap: Flow<Boolean> = konteks.penyimpanan.data.map { it[KUNCI_GELAP] ?: false }
@@ -52,6 +53,9 @@ class PengaturanAplikasi @Inject constructor(@ApplicationContext private val kon
     val ayatTerakhir: Flow<Int> = konteks.penyimpanan.data.map { it[KUNCI_AYAT_TERAKHIR] ?: 1 }
     val ukuranArab: Flow<Int> = konteks.penyimpanan.data.map { it[KUNCI_UKURAN_ARAB] ?: 30 }
     val ukuranTerjemahan: Flow<Int> = konteks.penyimpanan.data.map { it[KUNCI_UKURAN_TERJEMAHAN] ?: 16 }
+
+    /** Kode bahasa aplikasi: "id" (bawaan), "en", atau "ar". */
+    val bahasa: Flow<String> = konteks.penyimpanan.data.map { it[KUNCI_BAHASA] ?: "id" }
 
     suspend fun aturTemaGelap(gelap: Boolean) = konteks.penyimpanan.edit { it[KUNCI_GELAP] = gelap }
 
@@ -79,4 +83,6 @@ class PengaturanAplikasi @Inject constructor(@ApplicationContext private val kon
         it[KUNCI_UKURAN_ARAB] = arab.coerceIn(22, 44)
         it[KUNCI_UKURAN_TERJEMAHAN] = terjemahan.coerceIn(12, 24)
     }
+
+    suspend fun aturBahasa(kode: String) = konteks.penyimpanan.edit { it[KUNCI_BAHASA] = kode }
 }

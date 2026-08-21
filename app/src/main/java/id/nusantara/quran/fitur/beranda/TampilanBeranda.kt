@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -18,14 +21,20 @@ import androidx.compose.material.icons.rounded.AutoStories
 import androidx.compose.material.icons.rounded.Bookmark
 import androidx.compose.material.icons.rounded.Explore
 import androidx.compose.material.icons.rounded.GraphicEq
+import androidx.compose.material.icons.rounded.History
+import androidx.compose.material.icons.rounded.Mic
 import androidx.compose.material.icons.rounded.Schedule
+import androidx.compose.material.icons.rounded.Science
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material.icons.rounded.Topic
+import androidx.compose.material.icons.rounded.WorkspacePremium
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -39,19 +48,22 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import id.nusantara.quran.inti.ui.tema.KeluargaHurufArab
 
 /**
- * Beranda QuranKu: sapaan, ayat harian nyata, lanjutkan baca,
- * hitung mundur sholat, dan pintasan seluruh fitur.
+ * Beranda QuranKu: ayat hari ini, lanjutkan baca, hitung mundur sholat,
+ * fitur disarankan, bacaan unggulan, dan riwayat bacaan.
  */
 @Composable
 fun TampilanBeranda(
     modifier: Modifier = Modifier,
-    bukaMushaf: () -> Unit = {},
     bukaMushafDi: (Int, Int) -> Unit = { _, _ -> },
     bukaAudio: () -> Unit = {},
     bukaPencarian: () -> Unit = {},
     bukaBookmark: () -> Unit = {},
     bukaTematik: () -> Unit = {},
     bukaNusantara: () -> Unit = {},
+    bukaRiwayat: () -> Unit = {},
+    bukaUnggulan: () -> Unit = {},
+    bukaSains: () -> Unit = {},
+    bukaTopik: () -> Unit = {},
     model: ModelTampilanBeranda = hiltViewModel(),
 ) {
     val ayatHarian by model.ayatHarian.collectAsState()
@@ -59,6 +71,8 @@ fun TampilanBeranda(
     val posisiBaca by model.posisiBaca.collectAsState()
     val sholatBerikutnya by model.sholatBerikutnya.collectAsState()
     val namaKota by model.namaKota.collectAsState()
+    val riwayatTerakhir by model.riwayatTerakhir.collectAsState()
+    val unggulan by model.unggulan.collectAsState()
 
     Column(
         modifier
@@ -73,10 +87,12 @@ fun TampilanBeranda(
             modifier = Modifier.padding(top = 4.dp),
         )
 
-        // Kartu ayat harian dari data lokal, berganti setiap hari.
+        // Kartu ayat hari ini dari data lokal, berganti setiap hari.
         Spacer(Modifier.height(20.dp))
         Card(
-            Modifier.fillMaxWidth(),
+            Modifier
+                .fillMaxWidth()
+                .clickable { ayatHarian?.let { bukaMushafDi(it.surah, it.nomor) } },
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary),
         ) {
@@ -112,8 +128,25 @@ fun TampilanBeranda(
             }
         }
 
+        // Fitur disarankan: pintasan geser ke seluruh fitur utama.
+        Spacer(Modifier.height(22.dp))
+        Text("Fitur Disarankan", style = MaterialTheme.typography.titleMedium)
+        LazyRow(
+            Modifier.padding(top = 12.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            item { KartuDisarankan(Icons.Rounded.WorkspacePremium, "Bacaan Unggulan", bukaUnggulan) }
+            item { KartuDisarankan(Icons.Rounded.Science, "Quran & Sains", bukaSains) }
+            item { KartuDisarankan(Icons.Rounded.Topic, "Penjelajah Topik", bukaTopik) }
+            item { KartuDisarankan(Icons.Rounded.Mic, "Cari Suara", bukaPencarian) }
+            item { KartuDisarankan(Icons.Rounded.History, "Riwayat Bacaan", bukaRiwayat) }
+            item { KartuDisarankan(Icons.Rounded.AutoStories, "Tematik", bukaTematik) }
+            item { KartuDisarankan(Icons.Rounded.Explore, "Kiblat", bukaNusantara) }
+            item { KartuDisarankan(Icons.Rounded.GraphicEq, "Murottal", bukaAudio) }
+        }
+
         // Kartu lanjutkan membaca dari posisi terakhir yang tersimpan.
-        Spacer(Modifier.height(14.dp))
+        Spacer(Modifier.height(18.dp))
         Card(
             Modifier.fillMaxWidth().clickable { bukaMushafDi(posisiBaca.first, posisiBaca.second) },
             shape = RoundedCornerShape(20.dp),
@@ -172,20 +205,72 @@ fun TampilanBeranda(
             }
         }
 
-        // Pintasan fitur-fitur utama.
-        Spacer(Modifier.height(22.dp))
-        Text("Pintasan", style = MaterialTheme.typography.titleMedium)
-        Row(
-            Modifier.fillMaxWidth().padding(top = 12.dp),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            Pintasan(Icons.Rounded.Schedule, "Sholat", bukaNusantara, Modifier.weight(1f))
-            Pintasan(Icons.Rounded.Explore, "Kiblat", bukaNusantara, Modifier.weight(1f))
-            Pintasan(Icons.Rounded.GraphicEq, "Murottal", bukaAudio, Modifier.weight(1f))
-            Pintasan(Icons.Rounded.AutoStories, "Tematik", bukaTematik, Modifier.weight(1f))
+        // Bacaan unggulan: surah/ayat pilihan untuk waktu terbaik.
+        if (unggulan.isNotEmpty()) {
+            Spacer(Modifier.height(22.dp))
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text("Bacaan Unggulan", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                TextButton(onClick = bukaUnggulan) { Text("Lihat semua") }
+            }
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                items(unggulan, key = { it.id }) { bacaan ->
+                    Card(
+                        Modifier
+                            .width(200.dp)
+                            .clickable { bukaMushafDi(bacaan.surah, if (bacaan.ayat > 0) bacaan.ayat else 1) },
+                        shape = RoundedCornerShape(18.dp),
+                    ) {
+                        Column(Modifier.fillMaxWidth().padding(14.dp)) {
+                            Text(bacaan.judul, style = MaterialTheme.typography.titleSmall)
+                            Text(
+                                bacaan.rekomendasi,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.secondary,
+                                modifier = Modifier.padding(top = 6.dp),
+                            )
+                        }
+                    }
+                }
+            }
         }
+
+        // Riwayat bacaan terakhir.
+        if (riwayatTerakhir.isNotEmpty()) {
+            Spacer(Modifier.height(22.dp))
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text("Riwayat Bacaan", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+                TextButton(onClick = bukaRiwayat) { Text("Lihat semua") }
+            }
+            Card(Modifier.fillMaxWidth().padding(top = 4.dp), shape = RoundedCornerShape(20.dp)) {
+                Column(Modifier.padding(vertical = 6.dp)) {
+                    riwayatTerakhir.forEach { butir ->
+                        Row(
+                            Modifier
+                                .fillMaxWidth()
+                                .clickable { bukaMushafDi(butir.surah, butir.ayat) }
+                                .padding(horizontal = 18.dp, vertical = 12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Icon(
+                                Icons.Rounded.History,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.outline,
+                            )
+                            Text(
+                                "QS ${butir.namaSurah.ifBlank { butir.surah.toString() }}: ${butir.ayat}",
+                                style = MaterialTheme.typography.bodyLarge,
+                                modifier = Modifier.padding(start = 12.dp),
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        // Pintasan pencarian dan bookmark.
+        Spacer(Modifier.height(22.dp))
         Row(
-            Modifier.fillMaxWidth().padding(top = 16.dp),
+            Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             OutlinedButton(onClick = bukaPencarian, modifier = Modifier.weight(1f)) {
@@ -201,19 +286,24 @@ fun TampilanBeranda(
     }
 }
 
-/** Kartu pintasan kecil berisi ikon dan label. */
+/** Kartu kecil pada baris Fitur Disarankan. */
 @Composable
-private fun Pintasan(ikon: ImageVector, label: String, aksi: () -> Unit, modifier: Modifier = Modifier) {
+private fun KartuDisarankan(ikon: ImageVector, label: String, aksi: () -> Unit) {
     Card(
-        modifier.clickable(onClick = aksi),
+        Modifier.width(104.dp).clickable(onClick = aksi),
         shape = RoundedCornerShape(18.dp),
     ) {
         Column(
-            Modifier.fillMaxWidth().padding(vertical = 14.dp),
+            Modifier.fillMaxWidth().padding(vertical = 16.dp, horizontal = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon(ikon, contentDescription = label, tint = MaterialTheme.colorScheme.primary)
-            Text(label, style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(top = 8.dp))
+            Text(
+                label,
+                style = MaterialTheme.typography.labelMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 8.dp),
+            )
         }
     }
 }

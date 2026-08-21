@@ -25,15 +25,20 @@ import id.nusantara.quran.fitur.mushaf.TampilanMushaf
 import id.nusantara.quran.fitur.nusantara.TampilanNusantara
 import id.nusantara.quran.fitur.pencarian.TampilanPencarian
 import id.nusantara.quran.fitur.pengaturan.TampilanPengaturan
+import id.nusantara.quran.fitur.riwayat.TampilanRiwayat
+import id.nusantara.quran.fitur.sains.TampilanSains
 import id.nusantara.quran.fitur.tematik.TampilanTematik
+import id.nusantara.quran.fitur.tentang.TampilanTentang
+import id.nusantara.quran.fitur.topik.TampilanTopik
+import id.nusantara.quran.fitur.unggulan.TampilanUnggulan
 
 /**
  * Navigasi utama empat tab: Beranda, Mushaf, Audio, dan Saya.
- * Antar-layar seperti pencarian, bookmark, dan tematik dapat
- * melompat langsung ke ayat tertentu di mushaf.
+ * Antar-layar seperti pencarian, bookmark, riwayat, topik, sains,
+ * dan unggulan dapat melompat langsung ke ayat tertentu di mushaf.
  */
 @Composable
-fun GrafNavigasi(gelap: Boolean, onGantiTema: () -> Unit) {
+fun GrafNavigasi() {
     var tab by remember { mutableIntStateOf(0) }
     var ruang by remember { mutableStateOf("beranda") }
 
@@ -72,13 +77,16 @@ fun GrafNavigasi(gelap: Boolean, onGantiTema: () -> Unit) {
         when (ruang) {
             "beranda" -> TampilanBeranda(
                 Modifier.padding(bantalan),
-                bukaMushaf = { tab = 1; ruang = "mushaf" },
                 bukaMushafDi = { surah, ayat -> lompatKeAyat(surah, ayat) },
                 bukaAudio = { tab = 2; ruang = "audio" },
                 bukaPencarian = { ruang = "pencarian" },
                 bukaBookmark = { ruang = "bookmark" },
                 bukaTematik = { ruang = "tematik" },
                 bukaNusantara = { ruang = "nusantara" },
+                bukaRiwayat = { ruang = "riwayat" },
+                bukaUnggulan = { ruang = "unggulan" },
+                bukaSains = { ruang = "sains" },
+                bukaTopik = { ruang = "topik" },
             )
             "mushaf" -> TampilanMushaf(
                 Modifier.padding(bantalan),
@@ -97,6 +105,26 @@ fun GrafNavigasi(gelap: Boolean, onGantiTema: () -> Unit) {
                 onKembali = { ruang = "beranda" },
                 bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
             )
+            "riwayat" -> TampilanRiwayat(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+                bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
+            )
+            "unggulan" -> TampilanUnggulan(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+                bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
+            )
+            "sains" -> TampilanSains(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+                bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
+            )
+            "topik" -> TampilanTopik(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+                bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
+            )
             "tematik" -> TampilanTematik(
                 Modifier.padding(bantalan),
                 onKembali = { ruang = "beranda" },
@@ -105,7 +133,14 @@ fun GrafNavigasi(gelap: Boolean, onGantiTema: () -> Unit) {
                 Modifier.padding(bantalan),
                 onKembali = { ruang = "beranda" },
             )
-            else -> TampilanPengaturan(Modifier.padding(bantalan), gelap, onGantiTema)
+            "tentang" -> TampilanTentang(
+                Modifier.padding(bantalan),
+                onKembali = { tab = 3; ruang = "saya" },
+            )
+            else -> TampilanPengaturan(
+                Modifier.padding(bantalan),
+                bukaTentang = { ruang = "tentang" },
+            )
         }
     }
 }

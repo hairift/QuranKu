@@ -19,6 +19,10 @@ QuranKu adalah aplikasi Al-Qur'an offline-first dengan identitas Indonesia, navi
 - Fondasi audio Media3, pencarian Arab/terjemahan, bookmark folder, tema terang/gelap, jadwal sholat, dan kompas kiblat.
 - Menu Cari, Simpan, dan Tematik dapat dibuka langsung dari Beranda; tombol mushaf, audio, tema, bookmark, serta pilihan qari memiliki umpan balik interaktif.
 
+## Dokumentasi visual
+
+Lihat [dokumentasi foto aplikasi](docs/FOTO-APLIKASI.md) untuk tangkapan layar Beranda, Mushaf, Pencarian, Pengaturan, dan fitur Nusantara.
+
 ## Struktur pengembangan
 
 - `app`: aplikasi Android Kotlin + Jetpack Compose.

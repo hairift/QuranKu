@@ -24,7 +24,9 @@ object ModulData {
     @Provides
     @Singleton
     fun basisData(@ApplicationContext konteks: Context): BasisDataQuran =
-        Room.databaseBuilder(konteks, BasisDataQuran::class.java, "quranku.db").build()
+        Room.databaseBuilder(konteks, BasisDataQuran::class.java, "quranku.db")
+            .fallbackToDestructiveMigration()
+            .build()
 
     @Provides
     fun dao(basis: BasisDataQuran): DaoQuran = basis.daoQuran()
