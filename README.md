@@ -4,7 +4,7 @@
   <img src="assets/logo/quranku_icon_transparan.png" alt="Logo QuranKu" width="320" />
 </p>
 
-Versi aplikasi: **1.1.0** · kode versi **2**
+Versi aplikasi: **1.2.0** - kode versi **3**
 
 Aplikasi Al-Qur'an offline-first untuk pengguna Indonesia, dibangun ulang secara mandiri dengan Kotlin, Jetpack Compose, MVVM, dan Clean Architecture.
 
