@@ -1,11 +1,54 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Jaringan untuk jadwal sholat dan streaming murottal. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <application android:name=".AplikasiNusantara" android:label="@string/quran_nusantara_nama" android:icon="@drawable/quranku_icon_transparan" android:roundIcon="@drawable/quranku_icon_transparan" android:theme="@style/TemaAplikasi">
-        <activity android:name=".MainActivity" android:exported="true">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Notifikasi azan dan ayat harian (Android 13+). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Layanan pemutar audio latar belakang. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <!-- Lokasi hanya dipakai saat pengguna menekan tombol arah kiblat. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".AplikasiNusantara"
+        android:label="@string/quran_nusantara_nama"
+        android:icon="@drawable/quranku_icon_transparan"
+        android:roundIcon="@drawable/quranku_icon_transparan"
+        android:theme="@style/TemaAplikasi"
+        android:supportsRtl="true"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Pemutar murottal dengan notifikasi media. -->
+        <service
+            android:name=".fitur.audio.ServisPemutarAudio"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService" />
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+
+        <!-- Penerima alarm waktu sholat. -->
+        <receiver
+            android:name=".fitur.sholat.PenerimaAzan"
+            android:exported="false" />
     </application>
 </manifest>

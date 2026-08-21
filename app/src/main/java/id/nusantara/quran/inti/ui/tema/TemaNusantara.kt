@@ -5,17 +5,50 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-/** Tema Material 3 dengan warna hijau zamrud dan krem. */
+/** Skema warna terang bernuansa kertas dan zamrud. */
+private val SkemaTerang = lightColorScheme(
+    primary = HijauZamrud,
+    onPrimary = PermukaanKertas,
+    primaryContainer = HijauZamrudMuda,
+    onPrimaryContainer = HijauZamrudTua,
+    secondary = EmasNusantara,
+    onSecondary = TintaUtama,
+    secondaryContainer = EmasLembut,
+    onSecondaryContainer = TintaUtama,
+    background = KremKertas,
+    onBackground = TintaUtama,
+    surface = PermukaanKertas,
+    onSurface = TintaUtama,
+    surfaceVariant = HijauZamrudMuda,
+    onSurfaceVariant = TintaRedup,
+    outline = GarisKertas,
+)
+
+/** Skema warna gelap bernuansa malam hutan. */
+private val SkemaGelap = darkColorScheme(
+    primary = HijauMalam,
+    onPrimary = HijauLatarMalam,
+    primaryContainer = HijauZamrudTua,
+    onPrimaryContainer = HijauMalam,
+    secondary = EmasNusantara,
+    onSecondary = HijauLatarMalam,
+    secondaryContainer = PermukaanMalamNaik,
+    onSecondaryContainer = EmasNusantara,
+    background = HijauLatarMalam,
+    onBackground = TintaMalam,
+    surface = PermukaanMalam,
+    onSurface = TintaMalam,
+    surfaceVariant = PermukaanMalamNaik,
+    onSurfaceVariant = TintaMalamRedup,
+    outline = GarisMalam,
+)
+
+/** Tema utama QuranKu dengan Material 3. */
 @Composable
 fun TemaNusantara(gelap: Boolean, isi: @Composable () -> Unit) {
-    val warna = if (gelap) darkColorScheme(
-        primary = HijauMalam, secondary = EmasNusantara,
-        background = HijauLatarMalam, surface = PermukaanMalam
-    ) else lightColorScheme(
-        primary = HijauZamrud, secondary = EmasNusantara,
-        background = KremKertas, surface = ColorPutih
+    MaterialTheme(
+        colorScheme = if (gelap) SkemaGelap else SkemaTerang,
+        typography = TipografiQuranKu,
+        content = isi,
     )
-    MaterialTheme(colorScheme = warna, content = isi)
 }
-
-private val ColorPutih = androidx.compose.ui.graphics.Color(0xFFFFFFFF)
