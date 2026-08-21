@@ -9,6 +9,14 @@ from urllib.request import Request, urlopen
 
 SUMBER = []
 
+def rapikan_teks(teks):
+    """Memulihkan teks UTF-8 yang salah terbaca sebagai Latin-1."""
+    try:
+        kandidat = teks.encode("latin1").decode("utf-8")
+        return kandidat if "Ø" in teks or "Ù" in teks else teks
+    except UnicodeError:
+        return teks
+
 def unduh_semua():
     tujuan = Path("app/src/main/assets/data-lokal")
     tujuan.mkdir(parents=True, exist_ok=True)
@@ -36,6 +44,8 @@ def unduh_semua():
         if not berkas.exists():
             continue
         isi = json.loads(berkas.read_text(encoding="utf-8"))
+        for ayat in isi.get("result", []):
+            ayat["arabic_text"] = rapikan_teks(ayat.get("arabic_text", ""))
         semua_ayat.extend(isi.get("result", []))
     (tujuan / "quran_lokal.json").write_text(json.dumps({"sumber": "QuranEnc", "ayat": semua_ayat}, ensure_ascii=False), encoding="utf-8")
     print(f"Data lokal selesai: {len(semua_ayat)} ayat.")

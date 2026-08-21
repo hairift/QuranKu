@@ -22,3 +22,5 @@
 - Worker pengingat ayat harian serta notifikasi jadwal sholat.
 - Pengujian UI di emulator Android 7 sampai Android 14.
 - Keystore produksi, Play App Signing, privacy policy, dan screenshot store.
+
+Rincian status yang dapat diverifikasi ada di [matriks paritas fitur](PARITAS-FITUR.md).

@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -30,6 +33,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.rotate
 import id.nusantara.quran.inti.util.KompasKiblat
 import kotlin.math.roundToInt
 
@@ -67,12 +73,39 @@ fun TampilanNusantara(modifier: Modifier = Modifier, onKembali: () -> Unit = {})
                 Text("Arah kiblat Jakarta: ${arahKiblat.roundToInt()}° ${namaArah(arahKiblat)}", modifier = Modifier.padding(top = 12.dp))
                 Text("Arah ponsel: ${arahPonsel.roundToInt()}° ${namaArah(arahPonsel.toDouble())}", modifier = Modifier.padding(top = 6.dp))
                 Text("Putar perangkat sampai penunjuk mendekati arah kiblat.", modifier = Modifier.padding(top = 8.dp))
+                KompasVisual(arahPonsel, arahKiblat)
             }
         }
         Text("Jadwal azan hari ini · Jakarta", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 22.dp, bottom = 8.dp))
         LazyColumn { items(listOf("Subuh" to "04:42", "Dzuhur" to "12:02", "Ashar" to "15:23", "Maghrib" to "17:56", "Isya" to "19:08")) { (nama, waktu) ->
             Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween) { Text(nama); Text(waktu, color = MaterialTheme.colorScheme.primary) }
         } }
+    }
+}
+
+@Composable
+private fun KompasVisual(arahPonsel: Float, arahKiblat: Double) {
+    val warna = MaterialTheme.colorScheme.primary
+    Canvas(Modifier.fillMaxWidth().height(240.dp).padding(top = 18.dp).background(MaterialTheme.colorScheme.surfaceVariant)) {
+        val pusat = Offset(size.width / 2f, size.height / 2f)
+        val radius = size.minDimension * .34f
+        drawCircle(warna.copy(alpha = .12f), radius = radius * 1.18f, center = pusat)
+        drawCircle(warna, radius = radius, center = pusat, style = androidx.compose.ui.graphics.drawscope.Stroke(width = 4f))
+        for (indeks in 0 until 36) {
+            val sudut = Math.toRadians((indeks * 10 - 90).toDouble())
+            val panjang = if (indeks % 9 == 0) 18f else 9f
+            val awal = Offset(pusat.x + (radius - panjang) * kotlin.math.cos(sudut).toFloat(), pusat.y + (radius - panjang) * kotlin.math.sin(sudut).toFloat())
+            val akhir = Offset(pusat.x + radius * kotlin.math.cos(sudut).toFloat(), pusat.y + radius * kotlin.math.sin(sudut).toFloat())
+            drawLine(warna, awal, akhir, strokeWidth = if (indeks % 9 == 0) 4f else 2f)
+        }
+        val rotasi = arahKiblat.toFloat() - arahPonsel
+        rotate(rotasi, pusat) {
+            drawLine(Color(0xFFC8A951), Offset(pusat.x, pusat.y + radius * .55f), Offset(pusat.x, pusat.y - radius * .78f), strokeWidth = 10f)
+            drawCircle(Color(0xFFC8A951), radius = 13f, center = pusat)
+        }
+    }
+    Row(Modifier.fillMaxWidth().padding(top = 6.dp), horizontalArrangement = Arrangement.SpaceEvenly) {
+        Text("U", color = warna); Text("T", color = warna); Text("S", color = warna); Text("B", color = warna)
     }
 }
 
