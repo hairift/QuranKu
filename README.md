@@ -23,6 +23,14 @@ QuranKu adalah aplikasi Al-Qur'an offline-first dengan identitas Indonesia, navi
 
 Lihat [dokumentasi foto aplikasi](docs/FOTO-APLIKASI.md) untuk tangkapan layar Beranda, Mushaf, Pencarian, Pengaturan, dan fitur Nusantara.
 
+| Beranda | Mushaf | Pencarian |
+|---|---|---|
+| ![Beranda QuranKu](docs/foto/App01.jpeg) | ![Mushaf QuranKu](docs/foto/App02.jpeg) | ![Pencarian QuranKu](docs/foto/App03jpeg.jpeg) |
+
+| Pengaturan | Fitur Nusantara |
+|---|---|
+| ![Pengaturan QuranKu](docs/foto/App04.jpeg) | ![Fitur Nusantara QuranKu](docs/foto/App05.jpeg) |
+
 ## Struktur pengembangan
 
 - `app`: aplikasi Android Kotlin + Jetpack Compose.
