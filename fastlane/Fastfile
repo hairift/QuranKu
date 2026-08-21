@@ -1,0 +1,8 @@
+default_platform(:android)
+
+platform :android do
+  desc "Membangun APK rilis QuranKu"
+  lane :rakit do
+    gradle(task: "assembleRelease")
+  end
+end

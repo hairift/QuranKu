@@ -23,6 +23,11 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
@@ -34,6 +39,20 @@ import androidx.compose.ui.unit.sp
 fun TampilanMushaf(modifier: Modifier = Modifier) {
     var skala by remember { mutableFloatStateOf(1f) }
     var tersimpan by remember { mutableStateOf(setOf<String>()) }
+    var ayat by remember { mutableStateOf<List<AyatLokal>>(emptyList()) }
+    val konteks = LocalContext.current
+    LaunchedEffect(Unit) {
+        ayat = withContext(Dispatchers.IO) {
+            val isi = konteks.assets.open("data-lokal/quran_lokal.json").bufferedReader(Charsets.UTF_8).use { it.readText() }
+            val daftar = JSONObject(isi).getJSONArray("ayat")
+            buildList {
+                for (indeks in 0 until daftar.length()) {
+                    val item = daftar.getJSONObject(indeks)
+                    if (item.getInt("sura") == 2) add(AyatLokal(item.getInt("aya"), item.getString("arabic_text"), item.getString("translation")))
+                }
+            }
+        }
+    }
     Column(modifier.fillMaxSize().padding(horizontal = 18.dp, vertical = 18.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Column { Text("Al-Baqarah", fontSize = 24.sp); Text("Madaniyah · 286 ayat") }
@@ -47,8 +66,8 @@ fun TampilanMushaf(modifier: Modifier = Modifier) {
             FilterChip(false, {}, { Text("Mushaf 15 baris") })
         }
         LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            items(listOf("الٓمٓ", "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ", "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ")) { teks ->
-                KolomAyat(teks, skala, teks in tersimpan, { tersimpan = if (teks in tersimpan) tersimpan - teks else tersimpan + teks }, Modifier.pointerInput(Unit) {
+            items(ayat.ifEmpty { listOf(AyatLokal(1, "الٓمٓ", "Alif Lam Mim")) }) { item ->
+                KolomAyat(item, skala, item.arab in tersimpan, { tersimpan = if (item.arab in tersimpan) tersimpan - item.arab else tersimpan + item.arab }, Modifier.pointerInput(Unit) {
                     detectTransformGestures { _, _, perubahan, _ -> skala = (skala * perubahan).coerceIn(0.8f, 1.8f) }
                 })
             }
@@ -57,15 +76,17 @@ fun TampilanMushaf(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun KolomAyat(teks: String, skala: Float, tersimpan: Boolean, ubahBookmark: () -> Unit, modifier: Modifier) {
+private fun KolomAyat(item: AyatLokal, skala: Float, tersimpan: Boolean, ubahBookmark: () -> Unit, modifier: Modifier) {
     androidx.compose.material3.Card(Modifier.fillMaxWidth()) {
         Column(modifier.padding(18.dp)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text("۝", color = androidx.compose.material3.MaterialTheme.colorScheme.secondary)
                 androidx.compose.material3.IconButton(onClick = ubahBookmark) { Icon(Icons.Rounded.BookmarkBorder, if (tersimpan) "Hapus bookmark" else "Simpan bookmark") }
             }
-            Text(teks, Modifier.graphicsLayer(scaleX = skala, scaleY = skala).fillMaxWidth(), fontSize = 27.sp, textAlign = androidx.compose.ui.text.style.TextAlign.Right)
-            Text("Kitab ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa.", Modifier.padding(top = 12.dp))
+            Text(item.arab, Modifier.graphicsLayer(scaleX = skala, scaleY = skala).fillMaxWidth(), fontSize = 27.sp, textAlign = androidx.compose.ui.text.style.TextAlign.Right)
+            Text(item.terjemahan, Modifier.padding(top = 12.dp))
         }
     }
 }
+
+private data class AyatLokal(val nomor: Int, val arab: String, val terjemahan: String)

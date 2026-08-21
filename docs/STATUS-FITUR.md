@@ -1,4 +1,4 @@
-# Status Fitur Quran Nusantara
+# Status Fitur QuranKu
 
 ## Sudah aktif di aplikasi
 
@@ -10,6 +10,9 @@
 - Pemilihan qari dan tombol putar/jeda UI.
 - Fondasi Room, Hilt, DataStore, Media3, WorkManager, Retrofit, kompas, dan API jadwal sholat.
 - Ikon aplikasi vector asli.
+- Logo PNG `quranku_icon_transparan.png` dipakai sebagai ikon launcher.
+- Bundel lokal QuranEnc berisi 6.236 ayat dari 114 surah, termasuk teks Arab dan terjemahan Indonesia.
+- Jadwal azan dan kompas kiblat dengan derajat serta nama arah mata angin.
 
 ## Tahap berikutnya sebelum produksi publik
 

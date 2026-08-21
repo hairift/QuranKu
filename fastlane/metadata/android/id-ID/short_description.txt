@@ -1,1 +1,1 @@
-Al-Qur'an offline-first dengan terjemahan Indonesia dan fitur Nusantara.
+Al-Qur'an offline-first dengan terjemahan Indonesia, jadwal azan, dan kiblat.

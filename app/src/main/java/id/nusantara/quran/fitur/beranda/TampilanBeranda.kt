@@ -17,8 +17,8 @@ import androidx.compose.material.icons.rounded.MenuBook
 import androidx.compose.material.icons.rounded.Schedule
 import androidx.compose.material.icons.rounded.SelfImprovement
 import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.Bookmark
 import androidx.compose.material.icons.rounded.AutoStories
+import androidx.compose.material.icons.rounded.Bookmark
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -33,7 +33,7 @@ import id.nusantara.quran.inti.ui.tema.EmasNusantara
 
 /** Beranda dengan ayat harian, progres baca, dan pintasan Nusantara. */
 @Composable
-fun TampilanBeranda(modifier: Modifier = Modifier, bukaMushaf: () -> Unit = {}, bukaAudio: () -> Unit = {}, bukaPencarian: () -> Unit = {}, bukaBookmark: () -> Unit = {}, bukaTematik: () -> Unit = {}) {
+fun TampilanBeranda(modifier: Modifier = Modifier, bukaMushaf: () -> Unit = {}, bukaAudio: () -> Unit = {}, bukaPencarian: () -> Unit = {}, bukaBookmark: () -> Unit = {}, bukaTematik: () -> Unit = {}, bukaNusantara: () -> Unit = {}) {
     Column(modifier.fillMaxSize().padding(horizontal = 22.dp, vertical = 28.dp)) {
         Text("Assalamu'alaikum", style = MaterialTheme.typography.titleMedium)
         Text("Ruang teduh untuk membaca", style = MaterialTheme.typography.headlineSmall)
@@ -62,8 +62,8 @@ fun TampilanBeranda(modifier: Modifier = Modifier, bukaMushaf: () -> Unit = {}, 
         Spacer(Modifier.height(22.dp))
         Text("Pintasan Nusantara", style = MaterialTheme.typography.titleMedium)
         Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Pintasan(Icons.Rounded.Schedule, "Jadwal", bukaAudio)
-            Pintasan(Icons.Rounded.Explore, "Kiblat", bukaAudio)
+            Pintasan(Icons.Rounded.Schedule, "Jadwal", bukaNusantara)
+            Pintasan(Icons.Rounded.Explore, "Kiblat", bukaNusantara)
             Pintasan(Icons.Rounded.SelfImprovement, "Doa", bukaMushaf)
             Pintasan(Icons.Rounded.MenuBook, "Juz", bukaMushaf)
         }

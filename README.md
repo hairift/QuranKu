@@ -1,7 +1,7 @@
-# Quran Nusantara
+# QuranKu
 
 <p align="center">
-  <img src="assets/logo/quranku_icon_transparan.png" alt="Logo Quran Nusantara" width="128" />
+  <img src="assets/logo/quranku_icon_transparan.png" alt="Logo QuranKu" width="320" />
 </p>
 
 Versi aplikasi: **1.1.0** · kode versi **2**
@@ -10,7 +10,7 @@ Aplikasi Al-Qur'an offline-first untuk pengguna Indonesia, dibangun ulang secara
 
 ## Status
 
-Proyek ini sedang menuju produksi. Alur navigasi dan kontrol UI utama sudah aktif, sedangkan pengisian penuh 114 surah, katalog terjemahan/tafsir, sinkronisasi remote, dan audio offline harus disiapkan melalui pipeline data legal sebelum rilis publik.
+QuranKu adalah aplikasi Al-Qur'an offline-first dengan identitas Indonesia, navigasi Compose, mushaf, audio, bookmark, pencarian, tematik, jadwal azan, dan kompas kiblat.
 
 ## Fitur yang tersedia
 

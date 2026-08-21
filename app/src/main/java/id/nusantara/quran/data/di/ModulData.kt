@@ -15,6 +15,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ModulData {
-    @Provides @Singleton fun basisData(@ApplicationContext konteks: Context): BasisDataQuran = Room.databaseBuilder(konteks, BasisDataQuran::class.java, "quran_nusantara.db").build()
+    @Provides @Singleton fun basisData(@ApplicationContext konteks: Context): BasisDataQuran = Room.databaseBuilder(konteks, BasisDataQuran::class.java, "quranku.db").build()
     @Provides fun dao(basis: BasisDataQuran): DaoQuran = basis.daoQuran()
 }

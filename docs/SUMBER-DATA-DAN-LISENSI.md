@@ -2,7 +2,7 @@
 
 ## Kode aplikasi
 
-Kode Quran Nusantara ditulis ulang untuk paket `id.nusantara.quran` dengan UI dan penamaan sendiri. Tidak ada source code proyek referensi yang disalin. Sebelum distribusi publik, pilih lisensi proyek secara final dan sertakan berkas lisensi di root.
+Kode QuranKu ditulis ulang untuk paket `id.nusantara.quran` dengan UI dan penamaan sendiri. Tidak ada source code proyek referensi yang disalin. Sebelum distribusi publik, pilih lisensi proyek secara final dan sertakan berkas lisensi di root.
 
 ## Sumber konten
 

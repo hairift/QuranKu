@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
-    <application android:name=".AplikasiNusantara" android:label="@string/quran_nusantara_nama" android:icon="@drawable/ikon_nusantara" android:roundIcon="@drawable/ikon_nusantara" android:theme="@style/TemaAplikasi">
+    <application android:name=".AplikasiNusantara" android:label="@string/quran_nusantara_nama" android:icon="@drawable/quranku_icon_transparan" android:roundIcon="@drawable/quranku_icon_transparan" android:theme="@style/TemaAplikasi">
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

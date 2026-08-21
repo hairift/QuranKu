@@ -1,0 +1,1 @@
+QuranKu 1.2.0: ikon resmi, jadwal azan, kompas kiblat, dan navigasi Compose yang lebih lengkap.

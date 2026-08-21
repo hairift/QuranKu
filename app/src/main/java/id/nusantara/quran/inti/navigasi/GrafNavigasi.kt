@@ -24,6 +24,7 @@ import id.nusantara.quran.fitur.audio.TampilanAudio
 import id.nusantara.quran.fitur.pencarian.TampilanPencarian
 import id.nusantara.quran.fitur.bookmark.TampilanBookmark
 import id.nusantara.quran.fitur.tematik.TampilanTematik
+import id.nusantara.quran.fitur.nusantara.TampilanNusantara
 
 /** Navigasi utama empat ruang baca aplikasi. */
 @Composable
@@ -45,12 +46,13 @@ fun GrafNavigasi(gelap: Boolean, onGantiTema: () -> Unit) {
         }
     }) { bantalan ->
         when (ruang) {
-            "beranda" -> TampilanBeranda(Modifier.padding(bantalan), bukaMushaf = { tab = 1; ruang = "mushaf" }, bukaAudio = { tab = 2; ruang = "audio" }, bukaPencarian = { ruang = "pencarian" }, bukaBookmark = { ruang = "bookmark" }, bukaTematik = { ruang = "tematik" })
+            "beranda" -> TampilanBeranda(Modifier.padding(bantalan), bukaMushaf = { tab = 1; ruang = "mushaf" }, bukaAudio = { tab = 2; ruang = "audio" }, bukaPencarian = { ruang = "pencarian" }, bukaBookmark = { ruang = "bookmark" }, bukaTematik = { ruang = "tematik" }, bukaNusantara = { ruang = "nusantara" })
             "mushaf" -> TampilanMushaf(Modifier.padding(bantalan))
             "audio" -> TampilanAudio(Modifier.padding(bantalan))
             "pencarian" -> TampilanPencarian(Modifier.padding(bantalan), onKembali = { ruang = "beranda" })
             "bookmark" -> TampilanBookmark(Modifier.padding(bantalan), onKembali = { ruang = "beranda" })
             "tematik" -> TampilanTematik(Modifier.padding(bantalan), onKembali = { ruang = "beranda" })
+            "nusantara" -> TampilanNusantara(Modifier.padding(bantalan), onKembali = { ruang = "beranda" })
             else -> TampilanPengaturan(Modifier.padding(bantalan), gelap, onGantiTema)
         }
     }

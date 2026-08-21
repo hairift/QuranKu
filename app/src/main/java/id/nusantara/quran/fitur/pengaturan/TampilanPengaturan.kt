@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 fun TampilanPengaturan(modifier: Modifier = Modifier, gelap: Boolean, onGantiTema: () -> Unit) {
     Column(modifier.fillMaxSize().padding(22.dp)) {
         Text("Saya", style = MaterialTheme.typography.headlineMedium)
-        Text("Quran Nusantara · offline-first", modifier = Modifier.padding(top = 6.dp, bottom = 22.dp))
+        Text("QuranKu · offline-first", modifier = Modifier.padding(top = 6.dp, bottom = 22.dp))
         ListItem(headlineContent = { Text("Mode gelap") }, leadingContent = { Icon(Icons.Rounded.DarkMode, "Mode gelap") }, trailingContent = {
             Switch(checked = gelap, onCheckedChange = { onGantiTema() })
         })

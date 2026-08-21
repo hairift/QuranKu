@@ -26,7 +26,7 @@ fun TampilanAudio(modifier: Modifier = Modifier) {
     var qari by remember { mutableStateOf("Mishary Alafasy") }
     Column(modifier.fillMaxSize().padding(22.dp)) {
         Icon(Icons.Rounded.GraphicEq, "Audio")
-        Text("Murottal Nusantara", modifier = Modifier.padding(top = 12.dp))
+        Text("Murottal QuranKu", modifier = Modifier.padding(top = 12.dp))
         Text("Pilih qari, lalu dengarkan ayat dengan fokus.", modifier = Modifier.padding(top = 8.dp))
         androidx.compose.material3.Text("Qari aktif: $qari", modifier = Modifier.padding(top = 22.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 10.dp)) {

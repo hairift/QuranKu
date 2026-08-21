@@ -1,0 +1,1 @@
+QuranKu is a private, offline-first Quran reader with Arabic text, Indonesian translation, bookmarks, search, recitation, prayer times, and a Qibla compass.
