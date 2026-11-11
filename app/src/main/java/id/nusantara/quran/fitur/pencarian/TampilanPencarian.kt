@@ -9,26 +9,40 @@ import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Mic
 import androidx.compose.material.icons.rounded.MicOff
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -40,17 +54,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
+import id.nusantara.quran.R
 import id.nusantara.quran.inti.ui.tema.KeluargaHurufArab
 
 /**
  * Pencarian ayat berdasarkan teks Arab atau terjemahan Indonesia,
- * dilengkapi pencarian suara (voice note) berbahasa Indonesia.
- * Menyentuh hasil membuka mushaf tepat di ayat tersebut.
+ * dilengkapi pencarian suara berbahasa Indonesia dan saran kata kunci cepat.
  */
 @Composable
 fun TampilanPencarian(
@@ -67,7 +82,6 @@ fun TampilanPencarian(
     var mendengarkan by remember { mutableStateOf(false) }
     var pesanSuara by remember { mutableStateOf<String?>(null) }
 
-    // Pengenal suara perangkat; null bila layanan tidak tersedia.
     val pengenal = remember {
         if (SpeechRecognizer.isRecognitionAvailable(konteks)) {
             SpeechRecognizer.createSpeechRecognizer(konteks)
@@ -92,9 +106,9 @@ fun TampilanPencarian(
 
     DisposableEffect(pengenal) {
         val pendengar = object : RecognitionListener {
-            override fun onResults(hasil: Bundle) {
+            override fun onResults(hasilSuara: Bundle) {
                 mendengarkan = false
-                val teks = hasil
+                val teks = hasilSuara
                     .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                     ?.firstOrNull()
                 if (!teks.isNullOrBlank()) {
@@ -139,21 +153,37 @@ fun TampilanPencarian(
     }
 
     Column(modifier.fillMaxSize().padding(horizontal = 20.dp)) {
-        Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            Modifier.fillMaxWidth().padding(top = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             IconButton(onClick = onKembali) {
                 Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = "Kembali")
             }
-            Text("Cari Ayat", style = MaterialTheme.typography.headlineSmall)
+            Column {
+                Text("Cari Ayat Al-Quran", style = MaterialTheme.typography.headlineSmall)
+                Text(
+                    "Telusuri 6.236 ayat dengan kata kunci atau suara",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
+
         OutlinedTextField(
             value = kata,
             onValueChange = { model.ketik(it) },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 12.dp, bottom = 8.dp),
             leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null) },
             trailingIcon = {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     if (sedangMencari) {
-                        CircularProgressIndicator(modifier = Modifier.padding(12.dp), strokeWidth = 2.dp)
+                        CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
+                    }
+                    if (kata.isNotBlank()) {
+                        IconButton(onClick = { model.ketik("") }) {
+                            Icon(Icons.Rounded.Close, contentDescription = "Bersihkan teks")
+                        }
                     }
                     IconButton(onClick = {
                         if (mendengarkan) {
@@ -177,10 +207,26 @@ fun TampilanPencarian(
                     }
                 }
             },
-            placeholder = { Text("Teks Arab atau terjemahan…") },
+            placeholder = { Text("Ketik kata Arab atau terjemahan…") },
             singleLine = true,
             shape = RoundedCornerShape(16.dp),
         )
+
+        // Saran kata kunci populer
+        val saranPopuler = listOf("Sabar", "Syukur", "Rezeki", "Rahmat", "Taubat", "Keluarga", "Ilmu", "Surga")
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.padding(bottom = 10.dp),
+        ) {
+            items(saranPopuler) { saran ->
+                FilterChip(
+                    selected = kata.equals(saran, ignoreCase = true),
+                    onClick = { model.ketik(saran) },
+                    label = { Text(saran) },
+                )
+            }
+        }
+
         pesanSuara?.let {
             Text(
                 it,
@@ -192,39 +238,83 @@ fun TampilanPencarian(
         }
         if (kata.trim().length in 1..2) {
             Text(
-                "Ketik minimal 3 huruf untuk mencari",
+                "Ketik minimal 3 huruf untuk menampilkan hasil pencarian.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        } else if (hasil.isNotEmpty()) {
+            Text(
+                "Ditemukan ${hasil.size} ayat yang relevan",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(bottom = 8.dp),
+            )
         }
-        LazyColumn {
+
+        LazyColumn(
+            contentPadding = PaddingValues(bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
             items(hasil, key = { it.id }) { ayat ->
-                Column(
-                    Modifier
+                Card(
+                    modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { bukaAyat(ayat.surah, ayat.nomor) }
-                        .padding(vertical = 12.dp, horizontal = 4.dp),
+                        .clickable { bukaAyat(ayat.surah, ayat.nomor) },
+                    shape = RoundedCornerShape(18.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
                 ) {
-                    Text(
-                        "QS ${ayat.surah}:${ayat.nomor} · Juz ${ayat.juz}",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.secondary,
-                    )
-                    Text(
-                        ayat.arab,
-                        modifier = Modifier.fillMaxWidth().padding(top = 6.dp),
-                        fontFamily = KeluargaHurufArab,
-                        fontSize = 20.sp,
-                        textAlign = TextAlign.Right,
-                    )
-                    Text(
-                        ayat.terjemahan,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(top = 6.dp),
-                    )
+                    Column(Modifier.padding(16.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Box(Modifier.size(34.dp), contentAlignment = Alignment.Center) {
+                                Image(
+                                    painter = painterResource(R.drawable.ic_bingkai_ayat),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize(),
+                                )
+                                Text(
+                                    "${ayat.nomor}",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                            }
+                            Text(
+                                "Surah ${ayat.surah} : Ayat ${ayat.nomor}",
+                                style = MaterialTheme.typography.titleSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.padding(start = 10.dp).weight(1f),
+                            )
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = MaterialTheme.colorScheme.secondaryContainer,
+                            ) {
+                                Text(
+                                    "Juz ${ayat.juz}",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                                )
+                            }
+                        }
+                        Text(
+                            ayat.arab,
+                            modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                            fontFamily = KeluargaHurufArab,
+                            fontSize = 22.sp,
+                            lineHeight = 38.sp,
+                            textAlign = TextAlign.Right,
+                        )
+                        HorizontalDivider(
+                            modifier = Modifier.padding(vertical = 8.dp),
+                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.45f),
+                        )
+                        Text(
+                            ayat.terjemahan,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
-                HorizontalDivider()
             }
         }
     }

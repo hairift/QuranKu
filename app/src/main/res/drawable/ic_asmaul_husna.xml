@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ikon kaligrafi bintang delapan untuk fitur 99 Asmaul Husna -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M12,2L14.8,4.8L19,4.8L19,9L21.8,11.8L19,14.6L19,18.8L14.8,18.8L12,21.6L9.2,18.8L5,18.8L5,14.6L2.2,11.8L5,9L5,4.8L9.2,4.8L12,2ZM12,6.5A5.3,5.3 0 1,0 17.3,11.8A5.3,5.3 0 0,0 12,6.5ZM11,9H13V15H11V9ZM8.5,10.5H10V14.5H8.5V10.5ZM14,10.5H15.5V14.5H14V10.5Z" />
+</vector>
+

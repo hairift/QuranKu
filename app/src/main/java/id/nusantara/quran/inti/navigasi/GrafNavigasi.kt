@@ -1,14 +1,23 @@
 package id.nusantara.quran.inti.navigasi
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Book
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.automirrored.rounded.MenuBook
+import androidx.compose.material.icons.outlined.GraphicEq
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.rounded.GraphicEq
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.Person
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,9 +27,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import id.nusantara.quran.fitur.asmaulhusna.TampilanAsmaulHusna
 import id.nusantara.quran.fitur.audio.TampilanAudio
 import id.nusantara.quran.fitur.beranda.TampilanBeranda
 import id.nusantara.quran.fitur.bookmark.TampilanBookmark
+import id.nusantara.quran.fitur.dzikir.TampilanDzikir
 import id.nusantara.quran.fitur.mushaf.TampilanMushaf
 import id.nusantara.quran.fitur.nusantara.TampilanNusantara
 import id.nusantara.quran.fitur.pencarian.TampilanPencarian
@@ -34,8 +47,8 @@ import id.nusantara.quran.fitur.unggulan.TampilanUnggulan
 
 /**
  * Navigasi utama empat tab: Beranda, Mushaf, Audio, dan Saya.
- * Antar-layar seperti pencarian, bookmark, riwayat, topik, sains,
- * dan unggulan dapat melompat langsung ke ayat tertentu di mushaf.
+ * Status tab aktif dan tidak aktif dibedakan secara tegas dengan indikator
+ * zamrud pekat, ikon terisi vs garis luar, serta ketebalan tipografi.
  */
 @Composable
 fun GrafNavigasi() {
@@ -46,7 +59,7 @@ fun GrafNavigasi() {
     var surahTujuan by remember { mutableIntStateOf(0) }
     var ayatTujuan by remember { mutableIntStateOf(0) }
 
-    /** Melompat ke ayat tertentu di tab mushaf. */
+    /** Melompat langsung ke surah dan ayat tertentu di tab Mushaf. */
     fun lompatKeAyat(surah: Int, ayat: Int) {
         surahTujuan = surah
         ayatTujuan = ayat
@@ -54,26 +67,86 @@ fun GrafNavigasi() {
         ruang = "mushaf"
     }
 
+    // Tangani tombol kembali perangkat saat berada di sub-layar.
+    val diSubLayar = ruang !in listOf("beranda", "mushaf", "audio", "saya")
+    BackHandler(enabled = diSubLayar || tab != 0) {
+        when {
+            ruang == "tentang" -> {
+                tab = 3
+                ruang = "saya"
+            }
+            diSubLayar -> {
+                tab = 0
+                ruang = "beranda"
+            }
+            tab != 0 -> {
+                tab = 0
+                ruang = "beranda"
+            }
+        }
+    }
+
     val judul = listOf("Beranda", "Mushaf", "Audio", "Saya")
-    val ikon = listOf(
+    val ikonAktif = listOf(
         Icons.Rounded.Home,
-        Icons.Rounded.Book,
+        Icons.AutoMirrored.Rounded.MenuBook,
         Icons.Rounded.GraphicEq,
         Icons.Rounded.Person,
     )
+    val ikonNonaktif = listOf(
+        Icons.Outlined.Home,
+        Icons.AutoMirrored.Outlined.MenuBook,
+        Icons.Outlined.GraphicEq,
+        Icons.Outlined.Person,
+    )
 
-    Scaffold(bottomBar = {
-        NavigationBar {
-            judul.forEachIndexed { indeks, nama ->
-                NavigationBarItem(
-                    selected = tab == indeks,
-                    onClick = { tab = indeks; ruang = judul[indeks].lowercase() },
-                    icon = { Icon(ikon[indeks], contentDescription = nama) },
-                    label = { Text(nama) },
+    Scaffold(
+        bottomBar = {
+            Column {
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = MaterialTheme.colorScheme.outline,
                 )
+                NavigationBar(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    tonalElevation = 0.dp,
+                ) {
+                    judul.forEachIndexed { indeks, nama ->
+                        val aktif = tab == indeks
+                        NavigationBarItem(
+                            selected = aktif,
+                            onClick = {
+                                tab = indeks
+                                ruang = judul[indeks].lowercase()
+                            },
+                            icon = {
+                                Icon(
+                                    imageVector = if (aktif) ikonAktif[indeks] else ikonNonaktif[indeks],
+                                    contentDescription = nama,
+                                )
+                            },
+                            label = {
+                                Text(
+                                    text = nama,
+                                    style = MaterialTheme.typography.labelMedium.copy(
+                                        fontWeight = if (aktif) FontWeight.Bold else FontWeight.Medium,
+                                    ),
+                                )
+                            },
+                            alwaysShowLabel = true,
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                                selectedTextColor = MaterialTheme.colorScheme.primary,
+                                indicatorColor = MaterialTheme.colorScheme.primary,
+                                unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.62f),
+                                unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.68f),
+                            ),
+                        )
+                    }
+                }
             }
-        }
-    }) { bantalan ->
+        },
+    ) { bantalan ->
         when (ruang) {
             "beranda" -> TampilanBeranda(
                 Modifier.padding(bantalan),
@@ -87,6 +160,8 @@ fun GrafNavigasi() {
                 bukaUnggulan = { ruang = "unggulan" },
                 bukaSains = { ruang = "sains" },
                 bukaTopik = { ruang = "topik" },
+                bukaAsmaulHusna = { ruang = "asmaul_husna" },
+                bukaDzikir = { ruang = "dzikir" },
             )
             "mushaf" -> TampilanMushaf(
                 Modifier.padding(bantalan),
@@ -128,8 +203,17 @@ fun GrafNavigasi() {
             "tematik" -> TampilanTematik(
                 Modifier.padding(bantalan),
                 onKembali = { ruang = "beranda" },
+                bukaAyat = { surah, ayat -> lompatKeAyat(surah, ayat) },
             )
             "nusantara" -> TampilanNusantara(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+            )
+            "asmaul_husna" -> TampilanAsmaulHusna(
+                Modifier.padding(bantalan),
+                onKembali = { ruang = "beranda" },
+            )
+            "dzikir" -> TampilanDzikir(
                 Modifier.padding(bantalan),
                 onKembali = { ruang = "beranda" },
             )
@@ -140,6 +224,7 @@ fun GrafNavigasi() {
             else -> TampilanPengaturan(
                 Modifier.padding(bantalan),
                 bukaTentang = { ruang = "tentang" },
+                bukaNusantara = { ruang = "nusantara" },
             )
         }
     }

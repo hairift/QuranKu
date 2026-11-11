@@ -48,7 +48,7 @@ Gunakan logo resmi dari assets/logo/:
 ### Larangan Branding
 - Dilarang memutar logo
 - Dilarang ganti warna logo jadi ungu / biru (harus tetap hijau)
-- Dilarang pakai emoji 📖 sebagai pengganti icon logo
+- Dilarang pakai emoji [emoji] sebagai pengganti icon logo
 - Dilarang menambahkan efek drop shadow berlebihan
 
 ### Implementasi di Android

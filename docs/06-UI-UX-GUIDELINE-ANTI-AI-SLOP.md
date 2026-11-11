@@ -27,7 +27,7 @@
 #### 3. Icon Real
 - Pakai: `androidx.compose.material.icons:material-icons-extended`
 - Contoh: 
-  - Mushaf -> Icons.Rounded.MenuBook (bukan 📖)
+  - Mushaf -> Icons.Rounded.MenuBook (bukan [emoji])
   - Audio -> Icons.Rounded.GraphicEq
   - Pencarian -> Icons.Rounded.Search
   - Bookmark -> Icons.Rounded.Bookmark

@@ -2,18 +2,14 @@
 
 ## Kode aplikasi
 
-Kode QuranKu ditulis ulang untuk paket `id.nusantara.quran` dengan UI dan penamaan sendiri. Tidak ada source code proyek referensi yang disalin. Sebelum distribusi publik, pilih lisensi proyek secara final dan sertakan berkas lisensi di root.
+Kode QuranKu ditulis secara mandiri menggunakan paket `id.nusantara.quran` dengan sistem desain **Mushaf Nusantara**, aset vektor kustom, dan penamaan berbahasa Indonesia. Tidak ada kode sumber atau aset privat proyek pihak ketiga yang disalin.
 
-## Sumber konten
+## Sumber konten dan aset
 
-- Tanzil: teks Arab sesuai syarat atribusi dan ketentuan distribusi Tanzil.
-- QuranEnc: terjemahan sesuai lisensi masing-masing penerjemah dan endpoint yang dipakai.
-- Kemenag RI: terjemahan resmi hanya boleh didistribusikan sesuai izin/syarat sumbernya.
-- EveryAyah/quranicaudio: audio mengikuti ketentuan penggunaan dan atribusi sumber.
-- MyQuran: jadwal sholat digunakan melalui API publik sesuai batas penggunaan layanannya.
+- **Tanzil**: teks Al-Qur'an bahasa Arab mengikuti syarat atribusi dan ketentuan distribusi Tanzil.
+- **QuranEnc & Kemenag RI**: terjemahan bahasa Indonesia serta catatan kaki merujuk pada terjemahan Kementerian Agama RI yang didistribusikan melalui bundel lokal untuk penggunaan luring.
+- **EveryAyah / QuranicAudio**: pemutaran audio murottal surah dan ayat mengikuti ketentuan penggunaan layanan terkait.
+- **MyQuran API**: jadwal sholat dan imsakiyah per kota diambil dari endpoint publik MyQuran dengan daftar kota luring (`kota.json`).
+- **Aset Visual Luring**: seluruh ikon aplikasi menggunakan VectorDrawable Android asli di `app/src/main/res/drawable/` dan foto ilustrasi masjid serta Ka'bah disimpan secara lokal di `app/src/main/res/drawable-nodpi/` agar tetap tampil saat perangkat tidak terhubung ke internet.
 
-Jangan memasukkan kunci API, kredensial, atau data berhak cipta tanpa izin. Setiap berkas konten wajib memiliki catatan sumber, lisensi, versi, dan tanggal unduh.
-
-## Folder proyek referensi
-
-Folder `QuranKu/` dipertahankan di lokal sebagai bahan audit pengguna dan dikecualikan dari commit melalui `.gitignore`. Yang boleh dipakai dari sana hanya informasi lisensi/struktur tingkat tinggi untuk pemeriksaan, bukan source code, aset UI, ikon, font, screenshot, atau data terjemahan.
+Jangan memasukkan kunci API rahasia, kredensial pribadi, atau data berhak cipta tertutup ke dalam repositori.

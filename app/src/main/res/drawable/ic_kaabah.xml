@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ikon Ka'bah dengan sabuk emas Kiswah dan pintu Multazam -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Lingkaran latar belakang zamrud-emas -->
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M24,24m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"
+        android:strokeWidth="2"
+        android:strokeColor="#E2B95B" />
+
+    <!-- Atap perspektif Ka'bah -->
+    <path
+        android:fillColor="#2D3330"
+        android:pathData="M24,10 L36,15 L24,20 L12,15 Z" />
+
+    <!-- Dinding kiri Ka'bah (Kiswah hitam) -->
+    <path
+        android:fillColor="#1A1E1C"
+        android:pathData="M12,15 L24,20 L24,37 L12,32 Z" />
+
+    <!-- Dinding kanan Ka'bah (Kiswah hitam gelap) -->
+    <path
+        android:fillColor="#101311"
+        android:pathData="M24,20 L36,15 L36,32 L24,37 Z" />
+
+    <!-- Sabuk emas Kiswah (Hizam) kiri dan kanan -->
+    <path
+        android:fillColor="#E2B95B"
+        android:pathData="M12,19 L24,24 L24,27 L12,22 Z" />
+    <path
+        android:fillColor="#C8A951"
+        android:pathData="M24,24 L36,19 L36,22 L24,27 Z" />
+
+    <!-- Pintu emas Ka'bah (Bab al-Ka'bah) -->
+    <path
+        android:fillColor="#E2B95B"
+        android:pathData="M27,26 L31,24.3 L31,32.5 L27,34.2 Z" />
+</vector>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jarum penunjuk kiblat berlapis emas dengan ujung tombak presisi -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Ekor penyeimbang jarum di sisi bawah -->
+    <path
+        android:fillColor="#8C6518"
+        android:pathData="M120,120 L125,172 L120,184 L115,172 Z" />
+
+    <!-- Batang utama jarum emas sisi kiri (terang) -->
+    <path
+        android:fillColor="#E5C158"
+        android:pathData="M120,28 L109,68 L115,64 L116,120 L120,120 Z" />
+
+    <!-- Batang utama jarum emas sisi kanan (bayangan) -->
+    <path
+        android:fillColor="#B8892E"
+        android:pathData="M120,28 L131,68 L125,64 L124,120 L120,120 Z" />
+
+    <!-- Permata ornamen pada pangkal kepala tombak -->
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M120,52 L126,60 L120,68 L114,60 Z" />
+
+    <!-- Cincin poros tengah -->
+    <path
+        android:fillColor="#B8892E"
+        android:pathData="M120,120m-11,0a11,11 0,1 1,22 0a11,11 0,1 1,-22 0" />
+    <path
+        android:fillColor="#FAF7F0"
+        android:pathData="M120,120m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+</vector>
+

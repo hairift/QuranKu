@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bingkai nomor ayat berbentuk bintang segi delapan Islami (Rub el Hizb) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+
+    <!-- Persegi pertama diputar 45 derajat -->
+    <path
+        android:fillColor="#180B5D4C"
+        android:pathData="M22,3 L41,22 L22,41 L3,22 Z"
+        android:strokeWidth="1.6"
+        android:strokeColor="#0B5D4C" />
+
+    <!-- Persegi kedua tegak lurus -->
+    <path
+        android:fillColor="#22C8A951"
+        android:pathData="M8,8h28v28h-28z"
+        android:strokeWidth="1.6"
+        android:strokeColor="#B8892E" />
+
+    <!-- Lingkaran dalam tempat angka berada -->
+    <path
+        android:fillColor="#FAF7F0"
+        android:pathData="M22,22m-11,0a11,11 0,1 1,22 0a11,11 0,1 1,-22 0"
+        android:strokeWidth="1"
+        android:strokeColor="#66B8892E" />
+</vector>
+

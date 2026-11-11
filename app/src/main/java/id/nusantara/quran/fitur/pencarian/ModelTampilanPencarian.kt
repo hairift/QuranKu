@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ModelTampilanPencarian @Inject constructor(private val sumber: SumberDataLokal) : ViewModel() {
 
-    private val _kataKunci = MutableStateFlow("")
+    private val _kataKunci = MutableStateFlow("Sabar")
     val kataKunci: StateFlow<String> = _kataKunci.asStateFlow()
 
     private val _hasil = MutableStateFlow<List<ModelAyat>>(emptyList())

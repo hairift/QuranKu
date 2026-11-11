@@ -1,0 +1,697 @@
+{
+  "item": [
+    {
+      "nomor": 1,
+      "arab": "الرَّحْمَنُ",
+      "latin": "Ar-Rahman",
+      "arti": "Yang Maha Pengasih",
+      "keterangan": "Memberikan kasih sayang kepada seluruh makhluk di dunia tanpa terkecuali."
+    },
+    {
+      "nomor": 2,
+      "arab": "الرَّحِيمُ",
+      "latin": "Ar-Rahim",
+      "arti": "Yang Maha Penyayang",
+      "keterangan": "Memberikan rahmat khusus bagi hamba-hamba yang beriman di akhirat kelak."
+    },
+    {
+      "nomor": 3,
+      "arab": "الْمَلِكُ",
+      "latin": "Al-Malik",
+      "arti": "Yang Maha Merajai",
+      "keterangan": "Pemilik kekuasaan mutlak atas seluruh kerajaan langit dan bumi."
+    },
+    {
+      "nomor": 4,
+      "arab": "الْقُدُّوسُ",
+      "latin": "Al-Quddus",
+      "arti": "Yang Maha Suci",
+      "keterangan": "Suci dari segala sifat kekurangan, cela, dan penyerupaan dengan makhluk."
+    },
+    {
+      "nomor": 5,
+      "arab": "السَّلَامُ",
+      "latin": "As-Salam",
+      "arti": "Yang Maha Memberi Kesejahteraan",
+      "keterangan": "Sumber segala keselamatan, kedamaian, dan ketenteraman hidup."
+    },
+    {
+      "nomor": 6,
+      "arab": "الْمُؤْمِنُ",
+      "latin": "Al-Mu'min",
+      "arti": "Yang Maha Memberi Keamanan",
+      "keterangan": "Memberikan rasa aman dan menepati janji kepada seluruh hamba-Nya."
+    },
+    {
+      "nomor": 7,
+      "arab": "الْمُهَيْمِنُ",
+      "latin": "Al-Muhaimin",
+      "arti": "Yang Maha Pemelihara",
+      "keterangan": "Mengawasi, menjaga, dan mengatur seluruh urusan makhluk dengan teliti."
+    },
+    {
+      "nomor": 8,
+      "arab": "الْعَزِيزُ",
+      "latin": "Al-Aziz",
+      "arti": "Yang Maha Perkasa",
+      "keterangan": "Memiliki kemuliaan dan kekuatan yang tidak dapat dikalahkan oleh siapa pun."
+    },
+    {
+      "nomor": 9,
+      "arab": "الْجَبَّارُ",
+      "latin": "Al-Jabbar",
+      "arti": "Yang Maha Kuasa Memulihkan",
+      "keterangan": "Berkuasa memaksakan kehendak-Nya sekaligus memulihkan hati yang patah."
+    },
+    {
+      "nomor": 10,
+      "arab": "الْمُتَكَبِّرُ",
+      "latin": "Al-Mutakabbir",
+      "arti": "Yang Maha Megah",
+      "keterangan": "Pemilik tunggal segala keagungan dan kebesaran yang sejati."
+    },
+    {
+      "nomor": 11,
+      "arab": "الْخَالِقُ",
+      "latin": "Al-Khaliq",
+      "arti": "Yang Maha Pencipta",
+      "keterangan": "Menciptakan seluruh alam semesta dari ketiadaan sesuai ukuran terbaik."
+    },
+    {
+      "nomor": 12,
+      "arab": "الْبَارِئُ",
+      "latin": "Al-Bari'",
+      "arti": "Yang Maha Melepaskan",
+      "keterangan": "Mewujudkan ciptaan dengan keselarasan bentuk yang bebas dari cacat."
+    },
+    {
+      "nomor": 13,
+      "arab": "الْمُصَوِّرُ",
+      "latin": "Al-Mushawwir",
+      "arti": "Yang Maha Membentuk Rupa",
+      "keterangan": "Memberikan rupa dan ciri khas unik kepada setiap makhluk ciptaan-Nya."
+    },
+    {
+      "nomor": 14,
+      "arab": "الْغَفَّارُ",
+      "latin": "Al-Ghaffar",
+      "arti": "Yang Maha Pengampun",
+      "keterangan": "Menutupi aib dan mengampuni dosa hamba yang berulang kali bertaubat."
+    },
+    {
+      "nomor": 15,
+      "arab": "الْقَهَّارُ",
+      "latin": "Al-Qahhar",
+      "arti": "Yang Maha Menundukkan",
+      "keterangan": "Menaklukkan seluruh kekuatan di alam semesta di bawah ketetapan-Nya."
+    },
+    {
+      "nomor": 16,
+      "arab": "الْوَهَّابُ",
+      "latin": "Al-Wahhab",
+      "arti": "Yang Maha Pemberi Karunia",
+      "keterangan": "Menganugerahkan nikmat terus-menerus tanpa mengharapkan imbalan."
+    },
+    {
+      "nomor": 17,
+      "arab": "الرَّزَّاقُ",
+      "latin": "Ar-Razzaq",
+      "arti": "Yang Maha Pemberi Rezeki",
+      "keterangan": "Menjamin rezeki lahir dan batin bagi setiap makhluk yang bernyawa."
+    },
+    {
+      "nomor": 18,
+      "arab": "الْفَتَّاحُ",
+      "latin": "Al-Fattah",
+      "arti": "Yang Maha Pembuka Rahmat",
+      "keterangan": "Membukakan pintu jalan keluar, ilmu, dan pertolongan dengan adil."
+    },
+    {
+      "nomor": 19,
+      "arab": "الْعَلِيمُ",
+      "latin": "Al-Alim",
+      "arti": "Yang Maha Mengetahui",
+      "keterangan": "Mengetahui segala yang tampak maupun tersembunyi di langit dan bumi."
+    },
+    {
+      "nomor": 20,
+      "arab": "الْقَابِضُ",
+      "latin": "Al-Qabidh",
+      "arti": "Yang Maha Menyempitkan",
+      "keterangan": "Menahan atau menyempitkan rezeki sebagai ujian penuh hikmah bagi hamba."
+    },
+    {
+      "nomor": 21,
+      "arab": "الْبَاسِطُ",
+      "latin": "Al-Basith",
+      "arti": "Yang Maha Melapangkan",
+      "keterangan": "Meluaskan rezeki, ilmu, dan kelapangan dada bagi hamba yang dikehendaki."
+    },
+    {
+      "nomor": 22,
+      "arab": "الْخَافِضُ",
+      "latin": "Al-Khafidh",
+      "arti": "Yang Maha Merendahkan",
+      "keterangan": "Merendahkan derajat orang-orang yang angkuh dan melampaui batas."
+    },
+    {
+      "nomor": 23,
+      "arab": "الرَّافِعُ",
+      "latin": "Ar-Rafi'",
+      "arti": "Yang Maha Meninggikan",
+      "keterangan": "Mengangkat derajat orang-orang yang beriman dan berilmu pengetahuan."
+    },
+    {
+      "nomor": 24,
+      "arab": "الْمُعِزُّ",
+      "latin": "Al-Mu'izz",
+      "arti": "Yang Maha Memuliakan",
+      "keterangan": "Menganugerahkan kemuliaan sejati kepada hamba yang taat kepada-Nya."
+    },
+    {
+      "nomor": 25,
+      "arab": "الْمُذِلُّ",
+      "latin": "Al-Mudzill",
+      "arti": "Yang Maha Menghinakan",
+      "keterangan": "Menjatuhkan kehormatan siapa saja yang menentang kebenaran."
+    },
+    {
+      "nomor": 26,
+      "arab": "السَّمِيعُ",
+      "latin": "As-Sami'",
+      "arti": "Yang Maha Mendengar",
+      "keterangan": "Mendengar setiap bisikan doa dan rintihan hati meski tanpa suara."
+    },
+    {
+      "nomor": 27,
+      "arab": "الْبَصِيرُ",
+      "latin": "Al-Bashir",
+      "arti": "Yang Maha Melihat",
+      "keterangan": "Melihat setiap gerak-gerik dan amal perbuatan makhluk sekecil apa pun."
+    },
+    {
+      "nomor": 28,
+      "arab": "الْحَكَمُ",
+      "latin": "Al-Hakam",
+      "arti": "Yang Maha Menetapkan Hukum",
+      "keterangan": "Menjadi hakim paling adil yang keputusannya tidak dapat diganggu gugat."
+    },
+    {
+      "nomor": 29,
+      "arab": "الْعَدْلُ",
+      "latin": "Al-Adl",
+      "arti": "Yang Maha Adil",
+      "keterangan": "Menempatkan segala sesuatu pada tempatnya tanpa sedikit pun kezaliman."
+    },
+    {
+      "nomor": 30,
+      "arab": "اللَّطِيفُ",
+      "latin": "Al-Lathif",
+      "arti": "Yang Maha Lembut",
+      "keterangan": "Mengatur kebaikan hamba dengan cara yang sangat halus dan tak terduga."
+    },
+    {
+      "nomor": 31,
+      "arab": "الْخَبِيرُ",
+      "latin": "Al-Khabir",
+      "arti": "Yang Maha Mengenal Secara Mendalam",
+      "keterangan": "Mengetahui hakikat batin dan rincian terdalam dari segala perkara."
+    },
+    {
+      "nomor": 32,
+      "arab": "الْحَلِيمُ",
+      "latin": "Al-Halim",
+      "arti": "Yang Maha Penyantun",
+      "keterangan": "Tidak tergesa-gesa menurunkan hukuman dan memberi waktu untuk bertaubat."
+    },
+    {
+      "nomor": 33,
+      "arab": "الْعَظِيمُ",
+      "latin": "Al-Azhim",
+      "arti": "Yang Maha Agung",
+      "keterangan": "Memiliki keagungan zat dan sifat yang melampaui jangkauan akal pikiran."
+    },
+    {
+      "nomor": 34,
+      "arab": "الْغَفُورُ",
+      "latin": "Al-Ghafur",
+      "arti": "Yang Maha Memberi Ampunan",
+      "keterangan": "Mengampuni dosa-dosa besar maupun kecil bagi hamba yang memohon ampun."
+    },
+    {
+      "nomor": 35,
+      "arab": "الشَّكُورُ",
+      "latin": "Asy-Syakur",
+      "arti": "Yang Maha Menghargai Syukur",
+      "keterangan": "Membalas amal kebaikan yang sedikit dengan pahala yang berlipat ganda."
+    },
+    {
+      "nomor": 36,
+      "arab": "الْعَلِيُّ",
+      "latin": "Al-Aliyy",
+      "arti": "Yang Maha Tinggi",
+      "keterangan": "Maha Tinggi kedudukan, kekuasaan, dan kemuliaan-Nya di atas segalanya."
+    },
+    {
+      "nomor": 37,
+      "arab": "الْكَبِيرُ",
+      "latin": "Al-Kabir",
+      "arti": "Yang Maha Besar",
+      "keterangan": "Kebesaran-Nya meliputi langit dan bumi, tiada sesuatu pun yang setara."
+    },
+    {
+      "nomor": 38,
+      "arab": "الْحَفِيظُ",
+      "latin": "Al-Hafizh",
+      "arti": "Yang Maha Memelihara",
+      "keterangan": "Menjaga keteraturan alam semesta dan mencatat seluruh amal manusia."
+    },
+    {
+      "nomor": 39,
+      "arab": "الْمُقِيتُ",
+      "latin": "Al-Muqit",
+      "arti": "Yang Maha Pemberi Kecukupan",
+      "keterangan": "Menyediakan kekuatan dan nutrisi bagi keberlangsungan hidup makhluk."
+    },
+    {
+      "nomor": 40,
+      "arab": "الْحَسِيبُ",
+      "latin": "Al-Hasib",
+      "arti": "Yang Maha Membuat Perhitungan",
+      "keterangan": "Mencukupi kebutuhan hamba dan memperhitungkan amal dengan sangat cermat."
+    },
+    {
+      "nomor": 41,
+      "arab": "الْجَلِيلُ",
+      "latin": "Al-Jalil",
+      "arti": "Yang Maha Luhur",
+      "keterangan": "Menyandang seluruh sifat keluhuran, kemuliaan, dan kesempurnaan."
+    },
+    {
+      "nomor": 42,
+      "arab": "الْكَرِيمُ",
+      "latin": "Al-Karim",
+      "arti": "Yang Maha Pemurah",
+      "keterangan": "Memberikan anugerah bahkan sebelum diminta dan memaafkan ketika berkuasa."
+    },
+    {
+      "nomor": 43,
+      "arab": "الرَّقِيبُ",
+      "latin": "Ar-Raqib",
+      "arti": "Yang Maha Mengawasi",
+      "keterangan": "Mengawasi setiap lintasan hati dan perbuatan makhluk setiap saat."
+    },
+    {
+      "nomor": 44,
+      "arab": "الْمُجِيبُ",
+      "latin": "Al-Mujib",
+      "arti": "Yang Maha Mengabulkan",
+      "keterangan": "Menjawab doa dan permohonan hamba yang berdoa dengan tulus."
+    },
+    {
+      "nomor": 45,
+      "arab": "الْوَاسِعُ",
+      "latin": "Al-Wasi'",
+      "arti": "Yang Maha Luas",
+      "keterangan": "Rahmat, ilmu, dan kekayaan-Nya meliputi segala sesuatu tanpa batas."
+    },
+    {
+      "nomor": 46,
+      "arab": "الْحَكِيمُ",
+      "latin": "Al-Hakim",
+      "arti": "Yang Maha Bijaksana",
+      "keterangan": "Setiap ketetapan, syariat, dan ciptaan-Nya mengandung hikmah sempurna."
+    },
+    {
+      "nomor": 47,
+      "arab": "الْوَدُودُ",
+      "latin": "Al-Wadud",
+      "arti": "Yang Maha Mencintai",
+      "keterangan": "Mencintai hamba-hamba yang berbuat kebaikan dan menanamkan kasih di hati."
+    },
+    {
+      "nomor": 48,
+      "arab": "الْمَجِيدُ",
+      "latin": "Al-Majid",
+      "arti": "Yang Maha Mulia",
+      "keterangan": "Memiliki kemuliaan tertinggi yang disertai kemurahan luar biasa."
+    },
+    {
+      "nomor": 49,
+      "arab": "الْبَاعِثُ",
+      "latin": "Al-Ba'its",
+      "arti": "Yang Maha Membangkitkan",
+      "keterangan": "Membangkitkan manusia pada hari kiamat dan menggerakkan semangat kebaikan."
+    },
+    {
+      "nomor": 50,
+      "arab": "الشَّهِيدُ",
+      "latin": "Asy-Syahid",
+      "arti": "Yang Maha Menyaksikan",
+      "keterangan": "Hadir menyaksikan seluruh peristiwa tanpa ada yang luput sedikit pun."
+    },
+    {
+      "nomor": 51,
+      "arab": "الْحَقُّ",
+      "latin": "Al-Haqq",
+      "arti": "Yang Maha Benar",
+      "keterangan": "Kebenaran mutlak pada zat, firman, dan janji-Nya."
+    },
+    {
+      "nomor": 52,
+      "arab": "الْوَكِيلُ",
+      "latin": "Al-Wakil",
+      "arti": "Yang Maha Memelihara Urusan",
+      "keterangan": "Tempat bersandar terbaik bagi hamba yang menyerahkan urusannya dengan tawakal."
+    },
+    {
+      "nomor": 53,
+      "arab": "الْقَوِيُّ",
+      "latin": "Al-Qawiyy",
+      "arti": "Yang Maha Kuat",
+      "keterangan": "Memiliki kekuatan sempurna yang tidak pernah mengenal kelemahan."
+    },
+    {
+      "nomor": 54,
+      "arab": "الْمَتِينُ",
+      "latin": "Al-Matin",
+      "arti": "Yang Maha Kokoh",
+      "keterangan": "Kekuatan-Nya amat teguh dan tidak pernah mengalami kelelahan."
+    },
+    {
+      "nomor": 55,
+      "arab": "الْوَلِيُّ",
+      "latin": "Al-Waliyy",
+      "arti": "Yang Maha Melindungi",
+      "keterangan": "Menjadi pelindung dan penolong setia bagi orang-orang yang beriman."
+    },
+    {
+      "nomor": 56,
+      "arab": "الْحَمِيدُ",
+      "latin": "Al-Hamid",
+      "arti": "Yang Maha Terpuji",
+      "keterangan": "Berhak atas segala pujian dalam keadaan lapang maupun sempit."
+    },
+    {
+      "nomor": 57,
+      "arab": "الْمُحْصِي",
+      "latin": "Al-Muhshi",
+      "arti": "Yang Maha Menghitung",
+      "keterangan": "Menghitung seluruh jumlah makhluk dan rincian amal secara tepat."
+    },
+    {
+      "nomor": 58,
+      "arab": "الْمُبْدِئُ",
+      "latin": "Al-Mubdi'",
+      "arti": "Yang Maha Memulai",
+      "keterangan": "Memulai penciptaan segala sesuatu dari awal tanpa contoh sebelumnya."
+    },
+    {
+      "nomor": 59,
+      "arab": "الْمُعِيدُ",
+      "latin": "Al-Mu'id",
+      "arti": "Yang Maha Mengembalikan Kehidupan",
+      "keterangan": "Mengembalikan makhluk hidup setelah kematian untuk menerima balasan."
+    },
+    {
+      "nomor": 60,
+      "arab": "الْمُحْيِي",
+      "latin": "Al-Muhyi",
+      "arti": "Yang Maha Menghidupkan",
+      "keterangan": "Memberikan kehidupan pada jasad dan menghidupkan hati dengan iman."
+    },
+    {
+      "nomor": 61,
+      "arab": "الْمُمِيتُ",
+      "latin": "Al-Mumit",
+      "arti": "Yang Maha Mematikan",
+      "keterangan": "Menetapkan batas usia dan kematian bagi setiap makhluk bernyawa."
+    },
+    {
+      "nomor": 62,
+      "arab": "الْحَيُّ",
+      "latin": "Al-Hayyu",
+      "arti": "Yang Maha Hidup",
+      "keterangan": "Hidup kekal abadi tanpa awal dan tanpa akhir."
+    },
+    {
+      "nomor": 63,
+      "arab": "الْقَيُّومُ",
+      "latin": "Al-Qayyum",
+      "arti": "Yang Maha Mandiri",
+      "keterangan": "Berdiri sendiri dan menjadi penopang tegaknya seluruh langit dan bumi."
+    },
+    {
+      "nomor": 64,
+      "arab": "الْوَاجِدُ",
+      "latin": "Al-Wajid",
+      "arti": "Yang Maha Penemu",
+      "keterangan": "Memiliki segala sesuatu dan tidak pernah kekurangan suatu apa pun."
+    },
+    {
+      "nomor": 65,
+      "arab": "الْمَاجِدُ",
+      "latin": "Al-Majid",
+      "arti": "Yang Maha Mulia dan Luhur",
+      "keterangan": "Memiliki keluhuran sifat dan kebaikan yang melimpah ruah."
+    },
+    {
+      "nomor": 66,
+      "arab": "الْوَاحِدُ",
+      "latin": "Al-Wahid",
+      "arti": "Yang Maha Tunggal",
+      "keterangan": "Tunggal dalam zat, sifat, dan perbuatan-Nya tanpa sekutu."
+    },
+    {
+      "nomor": 67,
+      "arab": "الْأَحَدُ",
+      "latin": "Al-Ahad",
+      "arti": "Yang Maha Esa",
+      "keterangan": "Kemahaesaan mutlak yang tidak terbagi dan tidak berbilang."
+    },
+    {
+      "nomor": 68,
+      "arab": "الصَّمَدُ",
+      "latin": "Ash-Shamad",
+      "arti": "Yang Maha Dibutuhkan",
+      "keterangan": "Tempat bergantung seluruh makhluk dalam segala hajat dan keperluan."
+    },
+    {
+      "nomor": 69,
+      "arab": "الْقَادِرُ",
+      "latin": "Al-Qadir",
+      "arti": "Yang Maha Menentukan",
+      "keterangan": "Berkuasa mewujudkan segala sesuatu sesuai takdir dan kehendak-Nya."
+    },
+    {
+      "nomor": 70,
+      "arab": "الْمُقْتَدِرُ",
+      "latin": "Al-Muqtadir",
+      "arti": "Yang Maha Berkuasa Penuh",
+      "keterangan": "Memiliki kesempurnaan kuasa dalam melaksanakan setiap ketetapan."
+    },
+    {
+      "nomor": 71,
+      "arab": "الْمُقَدِّمُ",
+      "latin": "Al-Muqaddim",
+      "arti": "Yang Maha Mendahulukan",
+      "keterangan": "Mendahulukan siapa dan apa saja sesuai hikmah dan keadilan-Nya."
+    },
+    {
+      "nomor": 72,
+      "arab": "الْمُؤَخِّرُ",
+      "latin": "Al-Mu'akhkhir",
+      "arti": "Yang Maha Mengakhirkan",
+      "keterangan": "Menunda sesuatu hingga tiba waktu terbaik yang telah ditetapkan."
+    },
+    {
+      "nomor": 73,
+      "arab": "الْأَوَّلُ",
+      "latin": "Al-Awwal",
+      "arti": "Yang Maha Awal",
+      "keterangan": "Ada sebelum segala sesuatu ada, tanpa permulaan waktu."
+    },
+    {
+      "nomor": 74,
+      "arab": "الْآخِرُ",
+      "latin": "Al-Akhir",
+      "arti": "Yang Maha Akhir",
+      "keterangan": "Tetap kekal setelah seluruh makhluk binasa, tanpa batas akhir."
+    },
+    {
+      "nomor": 75,
+      "arab": "الظَّاهِرُ",
+      "latin": "Azh-Zhahir",
+      "arti": "Yang Maha Nyata",
+      "keterangan": "Nyata tanda-tanda kekuasaan-Nya di setiap penjuru alam semesta."
+    },
+    {
+      "nomor": 76,
+      "arab": "الْبَاطِنُ",
+      "latin": "Al-Bathin",
+      "arti": "Yang Maha Ghaib",
+      "keterangan": "Tidak dapat dijangkau oleh pandangan mata dunia namun dekat dengan hamba."
+    },
+    {
+      "nomor": 77,
+      "arab": "الْوَالِي",
+      "latin": "Al-Wali",
+      "arti": "Yang Maha Memerintah",
+      "keterangan": "Menguasai dan mengatur seluruh urusan alam semesta secara mandiri."
+    },
+    {
+      "nomor": 78,
+      "arab": "الْمُتَعَالِي",
+      "latin": "Al-Muta'ali",
+      "arti": "Yang Maha Tinggi Keluhuran-Nya",
+      "keterangan": "Tingkatan kemuliaan-Nya jauh melampaui segala bayangan makhluk."
+    },
+    {
+      "nomor": 79,
+      "arab": "الْبَرُّ",
+      "latin": "Al-Barr",
+      "arti": "Yang Maha Penderma",
+      "keterangan": "Melimpahkan kebaikan dan kasih sayang dengan penuh kelembutan."
+    },
+    {
+      "nomor": 80,
+      "arab": "التَّوَّابُ",
+      "latin": "At-Tawwab",
+      "arti": "Yang Maha Penerima Taubat",
+      "keterangan": "Membimbing hati hamba untuk kembali dan menerima taubat mereka."
+    },
+    {
+      "nomor": 81,
+      "arab": "الْمُنْتَقِمُ",
+      "latin": "Al-Muntaqim",
+      "arti": "Yang Maha Pemberi Balasan",
+      "keterangan": "Memberikan balasan setimpal kepada pelaku kezaliman yang enggan bertaubat."
+    },
+    {
+      "nomor": 82,
+      "arab": "الْعَفُوُّ",
+      "latin": "Al-Afuww",
+      "arti": "Yang Maha Pemaaf",
+      "keterangan": "Menghapus catatan kesalahan hamba hingga tak berbekas sedikit pun."
+    },
+    {
+      "nomor": 83,
+      "arab": "الرَّؤُوفُ",
+      "latin": "Ar-Ra'uf",
+      "arti": "Yang Maha Pengasih dan Belas Kasih",
+      "keterangan": "Memiliki kasih sayang yang sangat mendalam dan menyelamatkan hamba."
+    },
+    {
+      "nomor": 84,
+      "arab": "مَالِكُ الْمُلْكِ",
+      "latin": "Malikul-Mulk",
+      "arti": "Penguasa Kerajaan Semesta",
+      "keterangan": "Memberikan dan mencabut kekuasaan di dunia kepada siapa yang dikehendaki."
+    },
+    {
+      "nomor": 85,
+      "arab": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+      "latin": "Dzul-Jalali wal-Ikram",
+      "arti": "Pemilik Keagungan dan Kemuliaan",
+      "keterangan": "Berhak diagungkan dan sumber segala kemuliaan bagi hamba yang taat."
+    },
+    {
+      "nomor": 86,
+      "arab": "الْمُقْسِطُ",
+      "latin": "Al-Muqsith",
+      "arti": "Yang Maha Adil dalam Keputusan",
+      "keterangan": "Menegakkan keadilan dan memenangkan pihak yang terzalimi."
+    },
+    {
+      "nomor": 87,
+      "arab": "الْجَامِعُ",
+      "latin": "Al-Jami'",
+      "arti": "Yang Maha Mengumpulkan",
+      "keterangan": "Mengumpulkan seluruh manusia di Padang Mahsyar dan menyatukan hati."
+    },
+    {
+      "nomor": 88,
+      "arab": "الْغَنِيُّ",
+      "latin": "Al-Ghaniyy",
+      "arti": "Yang Maha Kaya",
+      "keterangan": "Tidak membutuhkan siapa pun dan apa pun, sedangkan semesta butuh pada-Nya."
+    },
+    {
+      "nomor": 89,
+      "arab": "الْمُغْنِي",
+      "latin": "Al-Mughni",
+      "arti": "Yang Maha Memberi Kekayaan",
+      "keterangan": "Mencukupkan jiwa dan harta hamba sehingga merasa lapang dan qanaah."
+    },
+    {
+      "nomor": 90,
+      "arab": "الْمَانِعُ",
+      "latin": "Al-Mani'",
+      "arti": "Yang Maha Mencegah",
+      "keterangan": "Menahan bahaya dan mencegah sesuatu demi kebaikan dan perlindungan hamba."
+    },
+    {
+      "nomor": 91,
+      "arab": "الضَّارُّ",
+      "latin": "Adh-Dharr",
+      "arti": "Yang Maha Menimpakan Ujian",
+      "keterangan": "Menetapkan ujian atau kesulitan sebagai sarana pembersih dosa dan penguat iman."
+    },
+    {
+      "nomor": 92,
+      "arab": "النَّافِعُ",
+      "latin": "An-Nafi'",
+      "arti": "Yang Maha Memberi Manfaat",
+      "keterangan": "Menciptakan segala manfaat, kesembuhan, dan kebaikan bagi makhluk."
+    },
+    {
+      "nomor": 93,
+      "arab": "النُّورُ",
+      "latin": "An-Nur",
+      "arti": "Yang Maha Bercahaya",
+      "keterangan": "Menerangi langit dan bumi serta memberi cahaya petunjuk di hati mukmin."
+    },
+    {
+      "nomor": 94,
+      "arab": "الْهَادِي",
+      "latin": "Al-Hadi",
+      "arti": "Yang Maha Pemberi Petunjuk",
+      "keterangan": "Menunjukkan jalan yang lurus bagi hamba yang mencari kebenaran."
+    },
+    {
+      "nomor": 95,
+      "arab": "الْبَدِيعُ",
+      "latin": "Al-Badi'",
+      "arti": "Yang Maha Pencipta Keindahan",
+      "keterangan": "Menciptakan keindahan semesta yang tiada bandingannya."
+    },
+    {
+      "nomor": 96,
+      "arab": "الْبَاقِي",
+      "latin": "Al-Baqi",
+      "arti": "Yang Maha Kekal",
+      "keterangan": "Kekal selamanya dan tidak pernah tersentuh kefanaan."
+    },
+    {
+      "nomor": 97,
+      "arab": "الْوَارِثُ",
+      "latin": "Al-Warits",
+      "arti": "Yang Maha Pewaris",
+      "keterangan": "Pemilik akhir tempat kembalinya seluruh kepemilikan makhluk."
+    },
+    {
+      "nomor": 98,
+      "arab": "الرَّشِيدُ",
+      "latin": "Ar-Rasyid",
+      "arti": "Yang Maha Pandai Membimbing",
+      "keterangan": "Mengatur segala urusan dengan bimbingan yang tepat menuju tujuan terbaik."
+    },
+    {
+      "nomor": 99,
+      "arab": "الصَّبُورُ",
+      "latin": "Ash-Shabur",
+      "arti": "Yang Maha Sabar",
+      "keterangan": "Menangguhkan siksaan dan senantiasa membuka kesempatan perbaikan diri."
+    }
+  ]
+}

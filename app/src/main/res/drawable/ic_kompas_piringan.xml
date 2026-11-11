@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Piringan kompas mata angin bergaya Nusantara dengan bintang delapan penjuru dan ornamen geometris -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Lingkaran dasar luar dengan aksen zamrud lembut -->
+    <path
+        android:fillColor="#120B5D4C"
+        android:pathData="M120,120m-112,0a112,112 0,1 1,224 0a112,112 0,1 1,-224 0" />
+
+    <!-- Cincin bingkai ganda luar -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M120,120m-110,0a110,110 0,1 1,220 0a110,110 0,1 1,-220 0"
+        android:strokeWidth="2.5"
+        android:strokeColor="#0B5D4C" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M120,120m-102,0a102,102 0,1 1,204 0a102,102 0,1 1,-204 0"
+        android:strokeWidth="1.2"
+        android:strokeColor="#66B8892E" />
+
+    <!-- Lingkaran skala dalam -->
+    <path
+        android:fillColor="#18C8A951"
+        android:pathData="M120,120m-74,0a74,74 0,1 1,148 0a74,74 0,1 1,-148 0" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M120,120m-74,0a74,74 0,1 1,148 0a74,74 0,1 1,-148 0"
+        android:strokeWidth="1.5"
+        android:strokeColor="#99B8892E" />
+
+    <!-- Garis sumbu utama dan diagonal -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M120,18L120,222M18,120L222,120"
+        android:strokeWidth="1"
+        android:strokeColor="#440B5D4C" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M48,48L192,192M192,48L48,192"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33B8892E" />
+
+    <!-- Bintang mata angin sekunder (Timur Laut, Tenggara, Barat Daya, Barat Laut) -->
+    <path
+        android:fillColor="#55B8892E"
+        android:pathData="M120,120 L132,96 L168,72 L144,108 Z" />
+    <path
+        android:fillColor="#55B8892E"
+        android:pathData="M120,120 L144,132 L168,168 L132,144 Z" />
+    <path
+        android:fillColor="#55B8892E"
+        android:pathData="M120,120 L108,144 L72,168 L96,132 Z" />
+    <path
+        android:fillColor="#55B8892E"
+        android:pathData="M120,120 L96,108 L72,72 L108,96 Z" />
+
+    <!-- Bintang mata angin utama (Utara, Timur, Selatan, Barat) - sisi terang -->
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M120,38 L131,109 L120,120 Z" />
+    <path
+        android:fillColor="#147A64"
+        android:pathData="M120,38 L109,109 L120,120 Z" />
+
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M202,120 L131,131 L120,120 Z" />
+    <path
+        android:fillColor="#147A64"
+        android:pathData="M202,120 L131,109 L120,120 Z" />
+
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M120,202 L109,131 L120,120 Z" />
+    <path
+        android:fillColor="#147A64"
+        android:pathData="M120,202 L131,131 L120,120 Z" />
+
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M38,120 L109,109 L120,120 Z" />
+    <path
+        android:fillColor="#147A64"
+        android:pathData="M38,120 L109,131 L120,120 Z" />
+
+    <!-- Ornamen Rub el Hizb (bintang segi delapan Islami) di pusat kompas -->
+    <path
+        android:fillColor="#22C8A951"
+        android:pathData="M96,96h48v48h-48z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#B8892E" />
+    <path
+        android:fillColor="#220B5D4C"
+        android:pathData="M120,86 L154,120 L120,154 L86,120 Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#0B5D4C" />
+
+    <!-- Penanda segitiga merah-emas khusus arah Utara (0 derajat) -->
+    <path
+        android:fillColor="#B8892E"
+        android:pathData="M120,10 L126,24 L114,24 Z" />
+
+    <!-- Lingkaran inti pusat -->
+    <path
+        android:fillColor="#0B5D4C"
+        android:pathData="M120,120m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0" />
+    <path
+        android:fillColor="#E2B95B"
+        android:pathData="M120,120m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+</vector>
+

@@ -1,36 +1,31 @@
 # Matriks Paritas Fitur QuranKu
 
-Dokumen ini membedakan fitur yang sudah berfungsi dengan fitur yang masih memerlukan implementasi data/layanan tambahan. Status tidak boleh dianggap selesai hanya karena folder atau layar sudah ada.
+Dokumen ini mencatat status fitur yang sudah aktif dan teruji pada aplikasi QuranKu versi **1.3.0**.
 
-| Kelompok | Status QuranKu | Catatan |
+| Kelompok Fitur | Status QuranKu | Catatan Implementasi |
 |---|---|---|
-| Mushaf ayat-per-ayat | Aktif | Membaca 6.236 ayat lokal, Arab, terjemahan, zoom, bookmark sesi |
-| Terjemahan Indonesia | Aktif | Bundel QuranEnc 114 surah |
-| Pencarian Arab/terjemahan | Aktif | Pencarian lokal, maksimal 30 hasil tampilan |
-| Pencarian suara (voice note) | Aktif | SpeechRecognizer id-ID di layar pencarian, izin RECORD_AUDIO runtime |
-| Ayat hari ini | Aktif | Berganti harian secara deterministik, bisa dibuka langsung di mushaf |
-| Fitur disarankan | Aktif | Baris pintasan geser di beranda ke seluruh fitur utama |
-| Riwayat bacaan | Aktif | Tercatat otomatis dari mushaf (Room), pratinjau beranda, hapus per-butir/semua |
-| Bacaan unggulan | Aktif | 12 bacaan anjuran waktu terbaik dari bundel unggulan.json |
-| Quran & Sains | Aktif | 18 fenomena ilmiah + ayat rujukan dari bundel sains.json |
-| Penjelajah topik | Aktif | 8 kategori + 8 suasana hati dari bundel topik.json, tiga tingkat navigasi |
-| Jadwal azan | Aktif | API MyQuran per kota (bundel kota.json), alarm notifikasi azan via AlarmManager, dipasang ulang otomatis |
-| Kompas kiblat | Aktif | Sensor rotasi, derajat, jarum visual, arah mata angin |
-| Navigasi Juz/Hizb/Halaman | Aktif dasar | Dialog lompat cepat ke ayat/juz di mushaf |
-| Mode mushaf 15 baris | UI dasar | Layout halaman tetap dan font mushaf khusus belum lengkap |
-| Audio qari | Aktif | Servis latar Media3 MediaSession dengan notifikasi media, putar/jeda/lanjut; cache offline dan repeat rentang belum lengkap |
-| Bookmark | Aktif | Penyimpanan Room, catatan, ikut ekspor-impor; folder belum lengkap |
-| Pembersihan penyimpanan | Aktif | Hitung dan bersihkan cache dari layar Saya |
-| Ekspor & impor | Aktif | Cadangan JSON (pengaturan + bookmark + riwayat) via SAF |
-| Tentang Kami | Aktif | Profil pengembang, sumber data, lisensi, tautan donasi |
-| Beri rating & berbagi | Aktif | Intent Google Play dan lembar berbagi Android |
-| Donasi | Aktif | Tautan Trakteer di layar Saya dan Tentang Kami |
-| Tafsir | Fondasi | Entitas/API tersedia; katalog dan pembaca belum lengkap |
-| Tematik | Aktif dasar | Kategori dan konten tematik lokal dibundel (tematik.json) |
-| Multi-bahasa | Dasar | Indonesia, Inggris, Arab; 22 bahasa belum lengkap |
-| Pengingat ayat | Aktif | Worker WorkManager harian dengan notifikasi ayat pada jam pilihan pengguna |
-| Lisensi dan atribusi | Aktif | Dokumentasi sumber QuranEnc/Tanzil tersedia |
-
-## Syarat rilis produksi
-
-Sebelum rilis publik, selesaikan seluruh baris berstatus `Fondasi` atau `UI dasar`, tambahkan pengujian perangkat, verifikasi lisensi setiap konten, dan ganti keystore QA dengan keystore produksi.
+| Mushaf ayat-per-ayat | Aktif | Membaca 6.236 ayat lokal, Arab, terjemahan, ukuran font, mode fokus Arab, salin & bagikan |
+| Indeks 30 Juz & Filter Wahyu | Aktif | Tab Daftar Surah & 30 Juz, filter Semua/Makkiyah/Madaniyah, navigasi surah sebelum/berikutnya |
+| Catatan Kaki Terjemahan | Aktif | Dialog rincian catatan kaki terjemahan Kemenag per ayat di layar Mushaf |
+| Audio per Ayat & Murottal Surah | Aktif | Servis latar Media3 `MediaSessionService`, pemutaran per surah dan per ayat dari Mushaf |
+| Terjemahan Indonesia | Aktif | Bundel lokal QuranEnc/Kemenag 114 surah (6.236 ayat) |
+| Pencarian Arab/Terjemahan | Aktif | Pencarian lokal instan + chip kata kunci populer |
+| Pencarian Suara | Aktif | `SpeechRecognizer` Bahasa Indonesia (`id-ID`) dengan izin `RECORD_AUDIO` runtime |
+| Ayat Hari Ini | Aktif | Kartu berlatar foto masjid luring, berganti harian secara deterministik, buka langsung di Mushaf |
+| Target Tilawah Harian | Aktif | Pelacak progres bacaan harian di Beranda dengan pilihan target 5, 10, 20, 30, atau 50 ayat |
+| 99 Asmaul Husna | Aktif | Bundel `asmaul_husna.json` lengkap 99 nama Allah, pencarian, dialog tadabbur, dan salin |
+| Dzikir & Tasbih Digital | Aktif | Bundel `dzikir.json` (Dzikir Pagi, Petang, Setelah Sholat) + Tasbih Digital dengan getar haptik |
+| Fitur Disarankan | Aktif | Baris pintasan geser dengan ukuran kartu seragam ke 10 fitur utama |
+| Riwayat Bacaan | Aktif | Tercatat otomatis dari Mushaf (Room), pratinjau Beranda, hapus per butir atau bersihkan semua |
+| Bacaan Unggulan | Aktif | 12 bacaan anjuran waktu terbaik dari bundel `unggulan.json` |
+| Quran & Sains | Aktif | 18 fenomena ilmiah beserta ayat rujukan dari bundel `sains.json` |
+| Penjelajah Topik | Aktif | 8 kategori + 8 suasana hati dari bundel `topik.json`, tiga tingkat navigasi |
+| Kajian Tematik | Aktif | Kategori dan konten kajian tematik lokal (`tematik.json`) |
+| Jadwal Sholat & Imsakiyah | Aktif | 7 waktu (Imsak, Subuh, Terbit, Dzuhur, Ashar, Maghrib, Isya) via API MyQuran & `kota.json`, alarm azan |
+| Kompas Kiblat Nusantara | Aktif | Sensor rotasi, piringan 8 arah mata angin Nusantara, jarum kiblat emas, lencana Ka'bah, jarak km ke Makkah |
+| Bookmark | Aktif | Penyimpanan Room Database, pratinjau ayat, lompat ke Mushaf, ekspor-impor JSON |
+| Pembersihan Penyimpanan | Aktif | Hitung dan bersihkan cache dari layar Saya |
+| Ekspor & Impor Data | Aktif | Cadangan JSON (pengaturan + bookmark + riwayat) via Storage Access Framework |
+| Tentang Kami, Rating & Donasi | Aktif | Profil pengembang, sumber data, lisensi, berbagi aplikasi, dan tautan dukungan |
+| Pengingat Ayat Harian | Aktif | Worker `WorkManager` harian dengan notifikasi ayat pada jam pilihan pengguna |
+| Multi-bahasa Sumber Daya | Aktif | Dukungan string dasar Indonesia (`values`), Inggris (`values-en`), dan Arab (`values-ar`) |

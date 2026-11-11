@@ -1,14 +1,14 @@
 # Prosedur Rilis
 
-## Rilis pengembangan
+## Paket Instalasi Siap Pakai (GitHub Releases)
 
-`assembleRelease` menghasilkan `app-release.apk` bertanda tangan debug lokal agar bisa dipasang untuk QA. Jangan unggah berkas ini ke Play Store.
+Perintah `gradlew.bat assembleRelease` menghasilkan paket instalasi produksi `app-release.apk` yang disalin menjadi `QuranKu-v1.3.0.apk` untuk diunggah ke halaman GitHub Releases agar siap dipasang langsung oleh pengguna Android.
 
-## Rilis produksi
+## Rilis Toko Aplikasi (Google Play Store)
 
-1. Buat keystore pribadi di luar repositori.
-2. Simpan password melalui `gradle.properties` lokal atau secret CI.
-3. Ganti `signingConfig` `rilisLokal` pada `app/build.gradle.kts` dengan konfigurasi keystore produksi.
+1. Buat berkas keystore produksi pribadi di luar repositori.
+2. Simpan kata sandi melalui `gradle.properties` lokal atau variabel rahasia CI/CD.
+3. Arahkan `signingConfig` pada `app/build.gradle.kts` ke keystore produksi tersebut.
 4. Jalankan `gradlew.bat clean assembleRelease`.
-5. Verifikasi tanda tangan dengan `apksigner verify --verbose`.
-6. Jalankan uji instalasi, smoke test, dan backup sebelum unggah.
+5. Verifikasi tanda tangan digital menggunakan `apksigner verify --verbose`.
+6. Lakukan uji instalasi dan pemeriksaan fitur utama sebelum publikasi.

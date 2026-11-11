@@ -2,10 +2,12 @@ package id.nusantara.quran.data.lokal
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import id.nusantara.quran.domain.model.ModelAsmaulHusna
 import id.nusantara.quran.domain.model.ModelAyat
 import id.nusantara.quran.domain.model.ModelBacaanUnggulan
 import id.nusantara.quran.domain.model.ModelButirSains
 import id.nusantara.quran.domain.model.ModelButirTematik
+import id.nusantara.quran.domain.model.ModelDzikir
 import id.nusantara.quran.domain.model.ModelKategoriTematik
 import id.nusantara.quran.domain.model.ModelKategoriTopik
 import id.nusantara.quran.domain.model.ModelKota
@@ -35,6 +37,8 @@ class SumberDataLokal @Inject constructor(@ApplicationContext private val kontek
     private var cacheTopikKategori: List<ModelKategoriTopik>? = null
     private var cacheTopikSuasana: List<ModelKategoriTopik>? = null
     private var cacheUnggulan: List<ModelBacaanUnggulan>? = null
+    private var cacheAsmaulHusna: List<ModelAsmaulHusna>? = null
+    private var cacheDzikir: List<ModelDzikir>? = null
 
     /** Membaca isi berkas dari assets sebagai teks. */
     private fun bacaAset(nama: String): String =
@@ -92,6 +96,10 @@ class SumberDataLokal @Inject constructor(@ApplicationContext private val kontek
     /** Ayat-ayat milik satu surah, diurutkan sesuai nomor ayat. */
     suspend fun ayatSurah(nomorSurah: Int): List<ModelAyat> =
         semuaAyat().filter { it.surah == nomorSurah }
+
+    /** Ayat pertama pada nomor juz tertentu (1-30). */
+    suspend fun awalJuz(nomorJuz: Int): ModelAyat? =
+        semuaAyat().firstOrNull { it.juz == nomorJuz }
 
     /** Satu ayat berdasarkan pasangan surah dan nomor ayat. */
     suspend fun ayatTunggal(surah: Int, nomor: Int): ModelAyat? =
@@ -247,6 +255,53 @@ class SumberDataLokal @Inject constructor(@ApplicationContext private val kontek
                     )
                 }
                 cacheUnggulan = daftar
+                daftar
+            }
+        }
+    }
+
+    /** Daftar 99 Asmaul Husna beserta arti dan keterangan tadabburnya. */
+    suspend fun daftarAsmaulHusna(): List<ModelAsmaulHusna> = withContext(Dispatchers.IO) {
+        cacheAsmaulHusna ?: kunci.withLock {
+            cacheAsmaulHusna ?: run {
+                val larik = JSONObject(bacaAset("asmaul_husna.json")).getJSONArray("item")
+                val daftar = ArrayList<ModelAsmaulHusna>(larik.length())
+                for (indeks in 0 until larik.length()) {
+                    val butir = larik.getJSONObject(indeks)
+                    daftar += ModelAsmaulHusna(
+                        nomor = butir.getInt("nomor"),
+                        arab = butir.getString("arab"),
+                        latin = butir.getString("latin"),
+                        arti = butir.getString("arti"),
+                        keterangan = butir.getString("keterangan"),
+                    )
+                }
+                cacheAsmaulHusna = daftar
+                daftar
+            }
+        }
+    }
+
+    /** Daftar bacaan dzikir harian (pagi, petang, dan setelah sholat). */
+    suspend fun daftarDzikir(): List<ModelDzikir> = withContext(Dispatchers.IO) {
+        cacheDzikir ?: kunci.withLock {
+            cacheDzikir ?: run {
+                val larik = JSONObject(bacaAset("dzikir.json")).getJSONArray("item")
+                val daftar = ArrayList<ModelDzikir>(larik.length())
+                for (indeks in 0 until larik.length()) {
+                    val butir = larik.getJSONObject(indeks)
+                    daftar += ModelDzikir(
+                        id = butir.getString("id"),
+                        kategori = butir.getString("kategori"),
+                        judul = butir.getString("judul"),
+                        arab = butir.getString("arab"),
+                        latin = butir.getString("latin"),
+                        arti = butir.getString("arti"),
+                        target = butir.getInt("target"),
+                        keutamaan = butir.getString("keutamaan"),
+                    )
+                }
+                cacheDzikir = daftar
                 daftar
             }
         }

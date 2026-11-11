@@ -165,7 +165,7 @@ Ambil dari https://github.com/farizdotid/DAFTAR-API-LOKAL-INDONESIA
 - DILARANG: Meniru nama variabel / fungsi seperti `QuranViewModel`, `AyahAdapter` -> harus ganti jadi `ModelTampilanAyat` tidak boleh mirip 1:1
 - DILARANG: Meniru struktur folder `com.quranapp` atau `alfaazplus`
 - DILARANG: Menggunakan screenshot, logo, atau icon dari referensi
-- DILARANG: Pakai emoji 💚 📖 🎙️ sebagai icon utama aplikasi (ini ciri AI slop)
+- DILARANG: Pakai emoji [emoji] [emoji] [emoji]️ sebagai icon utama aplikasi (ini ciri AI slop)
 - DILARANG: Menulis komentar bahasa Inggris kalau ada padanan Indonesianya
 - DILARANG: Hardcode API key di repo
 - DILARANG: Minta izin `READ_EXTERNAL_STORAGE`, `ACCESS_FINE_LOCATION` di manifest kecuali fitur kiblat
@@ -304,7 +304,7 @@ Jika Codex tidak menemukan assets/logo, suruh dia buat folder dan copy dari /mnt
 ## Masalah Umum Codex / AI Saat Build App Quran
 
 ### 1. AI SLOP UI (Paling Sering)
-- **Ciri:** Semua layar pakai `Card(elevation=4dp)`, warna ungu, icon emoji 📖, layout membosankan, semua teks center
+- **Ciri:** Semua layar pakai `Card(elevation=4dp)`, warna ungu, icon emoji [emoji], layout membosankan, semua teks center
 - **Koreksi Prompt:** 
   > "UI kamu terlalu AI slop. Ulangi dengan: pakai Scaffold dengan TopAppBar large, gunakan LazyColumn dengan sticky header untuk surah, warna primary #0E5E4D bukan ungu, icon wajib dari material-icons-extended, tambahkan empty state illustration, dan jangan pernah pakai emoji sebagai icon."
 
@@ -326,7 +326,7 @@ Jika Codex tidak menemukan assets/logo, suruh dia buat folder dan copy dari /mnt
 - **Koreksi:** "Hapus semua permission berbahaya. App ini offline-first pakai internal storage (getFilesDir), bukan external. Hanya izinkan INTERNET, FOREGROUND_SERVICE, POST_NOTIFICATIONS, dan SENSOR untuk kiblat."
 
 ### 6. Icon Emoji
-- **Ciri:** `Text("📖")` atau `Icon(\uD83D\uDCC6)`
+- **Ciri:** `Text("[emoji]")` atau `Icon(\uD83D\uDCC6)`
 - **Koreksi:** "DILARANG pakai emoji sebagai icon. Ganti dengan `Icon(Icons.Rounded.MenuBook, ...)` atau import Phosphor Icons. Emoji hanya boleh di dalam teks ayat/terjemahan, bukan UI."
 
 ### 7. Build Gagal Terus
@@ -512,7 +512,7 @@ EntitasBookmark:
 #### 3. Icon Real
 - Pakai: `androidx.compose.material.icons:material-icons-extended`
 - Contoh: 
-  - Mushaf -> Icons.Rounded.MenuBook (bukan 📖)
+  - Mushaf -> Icons.Rounded.MenuBook (bukan [emoji])
   - Audio -> Icons.Rounded.GraphicEq
   - Pencarian -> Icons.Rounded.Search
   - Bookmark -> Icons.Rounded.Bookmark
@@ -602,7 +602,7 @@ Gunakan logo resmi dari assets/logo/:
 ### Larangan Branding
 - Dilarang memutar logo
 - Dilarang ganti warna logo jadi ungu / biru (harus tetap hijau)
-- Dilarang pakai emoji 📖 sebagai pengganti icon logo
+- Dilarang pakai emoji [emoji] sebagai pengganti icon logo
 - Dilarang menambahkan efek drop shadow berlebihan
 
 ### Implementasi di Android

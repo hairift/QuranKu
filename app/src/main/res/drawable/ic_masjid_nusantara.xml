@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ilustrasi siluet kubah masjid dan menara Nusantara untuk aksen kartu utama -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+
+    <!-- Bintang dan bulan sabit halus di langit -->
+    <path
+        android:fillColor="#33E2B95B"
+        android:pathData="M162,22 A10,10 0 1,0 172,36 A8,8 0 1,1 162,22 Z" />
+    <path
+        android:fillColor="#33E2B95B"
+        android:pathData="M42,26 L44,31 L49,31 L45,34 L46,39 L42,36 L38,39 L39,34 L35,31 L40,31 Z" />
+
+    <!-- Menara kiri -->
+    <path
+        android:fillColor="#22FFFFFF"
+        android:pathData="M24,52 L30,36 L36,52 L36,120 L24,120 Z" />
+    <!-- Kubah utama tengah -->
+    <path
+        android:fillColor="#1FFFFFFF"
+        android:pathData="M60,120 L60,82 C60,54 100,40 100,26 C100,40 140,54 140,82 L140,120 Z" />
+    <!-- Kemuncak bulan sabit kubah utama -->
+    <path
+        android:fillColor="#66E2B95B"
+        android:pathData="M99,14h2v14h-2z" />
+    <!-- Kubah pendamping kanan -->
+    <path
+        android:fillColor="#18FFFFFF"
+        android:pathData="M132,120 L132,92 C132,74 156,66 156,56 C156,66 180,74 180,92 L180,120 Z" />
+    <!-- Lengkungan serambi masjid -->
+    <path
+        android:fillColor="#14000000"
+        android:pathData="M78,120 L78,96 C78,88 90,88 90,96 L90,120 Z M110,120 L110,96 C110,88 122,88 122,96 L122,120 Z" />
+</vector>
+

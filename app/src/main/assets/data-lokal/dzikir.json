@@ -1,0 +1,124 @@
+{
+  "item": [
+    {
+      "id": "pagi_kursi",
+      "kategori": "pagi",
+      "judul": "Ayat Kursi (Perlindungan Pagi)",
+      "arab": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ",
+      "latin": "Allahu la ilaha illa huwal hayyul qayyum, la ta'khudzuhu sinatuw wa la naum, lahu ma fis samawati wa ma fil ardh...",
+      "arti": "Allah, tidak ada Tuhan selain Dia. Yang Mahahidup, Yang terus-menerus mengurus makhluk-Nya, tidak mengantuk dan tidak tidur.",
+      "target": 1,
+      "keutamaan": "Barangsiapa membacanya di pagi hari, ia akan dijaga hingga petang hari."
+    },
+    {
+      "id": "pagi_sayyidul",
+      "kategori": "pagi",
+      "judul": "Sayyidul Istighfar",
+      "arab": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+      "latin": "Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana abduka wa ana ala ahdika wa wa'dika mastatha'tu...",
+      "arti": "Ya Allah, Engkau adalah Rabbku, tidak ada sesembahan yang berhak disembah kecuali Engkau. Engkaulah yang menciptakanku dan aku adalah hamba-Mu.",
+      "target": 1,
+      "keutamaan": "Induk permohonan ampun yang dijanjikan surga bagi pembacanya yang yakin."
+    },
+    {
+      "id": "pagi_asbahna",
+      "kategori": "pagi",
+      "judul": "Dzikir Memasuki Waktu Pagi",
+      "arab": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+      "latin": "Ashbahna wa ashbahal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la syarika lah...",
+      "arti": "Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada sesembahan yang berhak disembah kecuali Allah semata.",
+      "target": 1,
+      "keutamaan": "Memohon kebaikan hari ini dan berlindung dari keburukan hari ini."
+    },
+    {
+      "id": "pagi_bismillah",
+      "kategori": "pagi",
+      "judul": "Dzikir Penjaga dari Bahaya",
+      "arab": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+      "latin": "Bismillahilladzi la yadhurru ma'asmihi syai'un fil ardhi wa la fis sama'i wa huwas sami'ul alim.",
+      "arti": "Dengan nama Allah yang bila disebut, segala sesuatu di bumi dan langit tidak akan berbahaya, Dia-lah Yang Maha Mendengar lagi Maha Mengetahui.",
+      "target": 3,
+      "keutamaan": "Dibaca 3 kali pagi dan petang agar terhindar dari bahaya mendadak."
+    },
+    {
+      "id": "pagi_tasbih",
+      "kategori": "pagi",
+      "judul": "Tasbih dan Tahmid Pagi",
+      "arab": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+      "latin": "Subhanallahi wa bihamdih.",
+      "arti": "Mahasuci Allah dan aku memuji-Nya.",
+      "target": 100,
+      "keutamaan": "Dihapuskan kesalahan-kesalahannya walaupun sebanyak buih di lautan."
+    },
+    {
+      "id": "petang_amsaina",
+      "kategori": "petang",
+      "judul": "Dzikir Memasuki Waktu Petang",
+      "arab": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+      "latin": "Amsaina wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la syarika lah...",
+      "arti": "Kami telah memasuki waktu petang dan kerajaan hanya milik Allah, segala puji bagi Allah.",
+      "target": 1,
+      "keutamaan": "Memohon kebaikan malam ini dan perlindungan dari keburukannya."
+    },
+    {
+      "id": "petang_audzu",
+      "kategori": "petang",
+      "judul": "Doa Perlindungan Malam",
+      "arab": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+      "latin": "A'udzu bikalimatillahit tammati min syarri ma khalaq.",
+      "arti": "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk yang diciptakan-Nya.",
+      "target": 3,
+      "keutamaan": "Dibaca 3 kali pada waktu petang sebagai penjaga dari gangguan malam."
+    },
+    {
+      "id": "petang_radhitu",
+      "kategori": "petang",
+      "judul": "Ikrar Keridhaan Hamba",
+      "arab": "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",
+      "latin": "Radhitu billahi rabba, wa bil islami dina, wa bi Muhammadin shallallahu alaihi wa sallama nabiyya.",
+      "arti": "Aku ridha Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad sebagai nabiku.",
+      "target": 3,
+      "keutamaan": "Allah pasti meridhai hamba yang membacanya di pagi dan petang hari."
+    },
+    {
+      "id": "sholat_istighfar",
+      "kategori": "sholat",
+      "judul": "Istighfar dan Salam Setelah Sholat",
+      "arab": "أَسْتَغْفِرُ اللَّهَ (٣x) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ",
+      "latin": "Astaghfirullah (3x). Allahumma antas salam wa minkas salam tabarakta ya dzal jalali wal ikram.",
+      "arti": "Aku memohon ampun kepada Allah. Ya Allah, Engkau pemberi keselamatan dan dari-Mu keselamatan, Mahasuci Engkau wahai Pemilik Keagungan dan Kemuliaan.",
+      "target": 1,
+      "keutamaan": "Sunnah pertama yang dibaca Rasulullah setiap selesai salam sholat wajib."
+    },
+    {
+      "id": "sholat_subhanallah",
+      "kategori": "sholat",
+      "judul": "Tasbih Setelah Sholat",
+      "arab": "سُبْحَانَ اللَّهِ",
+      "latin": "Subhanallah.",
+      "arti": "Mahasuci Allah.",
+      "target": 33,
+      "keutamaan": "Bagian pertama dari rangkaian dzikir 33 kali seusai sholat fardhu."
+    },
+    {
+      "id": "sholat_alhamdulillah",
+      "kategori": "sholat",
+      "judul": "Tahmid Setelah Sholat",
+      "arab": "الْحَمْدُ لِلَّهِ",
+      "latin": "Alhamdulillah.",
+      "arti": "Segala puji bagi Allah.",
+      "target": 33,
+      "keutamaan": "Bagian kedua dari rangkaian dzikir 33 kali seusai sholat fardhu."
+    },
+    {
+      "id": "sholat_allahuakbar",
+      "kategori": "sholat",
+      "judul": "Takbir Setelah Sholat",
+      "arab": "اللَّهُ أَكْبَرُ",
+      "latin": "Allahu Akbar.",
+      "arti": "Allah Mahabesar.",
+      "target": 33,
+      "keutamaan": "Bagian ketiga dzikir seusai sholat, digenapkan menjadi 100 dengan kalimat tauhid."
+    }
+  ]
+}

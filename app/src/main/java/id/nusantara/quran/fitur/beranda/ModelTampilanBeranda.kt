@@ -17,13 +17,15 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.util.Calendar
 import javax.inject.Inject
 
 /**
  * Model tampilan beranda: ayat harian, posisi baca terakhir,
- * dan hitung mundur menuju waktu sholat berikutnya.
+ * progres tilawah harian, dan hitung mundur menuju waktu sholat berikutnya.
  */
 @HiltViewModel
 class ModelTampilanBeranda @Inject constructor(
@@ -49,7 +51,7 @@ class ModelTampilanBeranda @Inject constructor(
         .let { alur ->
             kotlinx.coroutines.flow.flow {
                 alur.collect { (surah, ayat) ->
-                    val nama = sumber.daftarSurah().firstOrNull { it.nomor == surah }?.namaLatin ?: ""
+                    val nama = sumber.daftarSurah().firstOrNull { it.nomor == surah }?.namaLatin ?: "Al-Fatihah"
                     emit(Triple(surah, ayat, nama))
                 }
             }
@@ -61,6 +63,22 @@ class ModelTampilanBeranda @Inject constructor(
     /** Tiga riwayat bacaan terakhir untuk pratinjau di beranda. */
     val riwayatTerakhir: StateFlow<List<EntitasRiwayat>> =
         repositoriQuran.riwayat(3).stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /** Jumlah ayat yang dibaca pada hari ini (berdasarkan catatan riwayat hari ini). */
+    val bacaanHariIni: StateFlow<Int> = repositoriQuran.riwayat(200)
+        .map { daftar ->
+            val awalHari = Calendar.getInstance().apply {
+                set(Calendar.HOUR_OF_DAY, 0)
+                set(Calendar.MINUTE, 0)
+                set(Calendar.SECOND, 0)
+                set(Calendar.MILLISECOND, 0)
+            }.timeInMillis
+            daftar.count { it.waktu >= awalHari }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
+
+    val targetHarian: StateFlow<Int> =
+        pengaturan.targetAyatHarian.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 20)
 
     private val _unggulan = MutableStateFlow<List<ModelBacaanUnggulan>>(emptyList())
     val unggulan: StateFlow<List<ModelBacaanUnggulan>> = _unggulan.asStateFlow()
@@ -85,6 +103,13 @@ class ModelTampilanBeranda @Inject constructor(
                     delay(60_000)
                 }
             }
+        }
+    }
+
+    /** Mengubah target bacaan ayat harian dari dialog beranda. */
+    fun ubahTargetHarian(target: Int) {
+        viewModelScope.launch {
+            pengaturan.aturTargetAyatHarian(target)
         }
     }
 }

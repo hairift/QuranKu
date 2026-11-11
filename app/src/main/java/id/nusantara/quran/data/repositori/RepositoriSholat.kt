@@ -20,7 +20,15 @@ class RepositoriSholat @Inject constructor(private val api: ApiJadwalSholat) {
         val tanggal = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
         return runCatching {
             api.jadwal(idKota, tanggal).data?.jadwal?.let {
-                ModelWaktuSholat(it.subuh, it.dzuhur, it.ashar, it.maghrib, it.isya)
+                ModelWaktuSholat(
+                    subuh = it.subuh,
+                    dzuhur = it.dzuhur,
+                    ashar = it.ashar,
+                    maghrib = it.maghrib,
+                    isya = it.isya,
+                    imsak = it.imsak,
+                    terbit = it.terbit,
+                )
             }
         }.getOrNull() ?: JADWAL_CADANGAN
     }
@@ -62,6 +70,14 @@ class RepositoriSholat @Inject constructor(private val api: ApiJadwalSholat) {
 
     companion object {
         /** Cadangan jadwal Jakarta bila perangkat sedang luring. */
-        private val JADWAL_CADANGAN = ModelWaktuSholat("04:35", "12:04", "15:26", "18:01", "19:14")
+        private val JADWAL_CADANGAN = ModelWaktuSholat(
+            subuh = "04:35",
+            dzuhur = "12:04",
+            ashar = "15:26",
+            maghrib = "18:01",
+            isya = "19:14",
+            imsak = "04:25",
+            terbit = "05:49",
+        )
     }
 }

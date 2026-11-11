@@ -63,15 +63,50 @@ data class ModelBacaanUnggulan(
     val ayat: Int = 0,
 )
 
-/** Waktu lima sholat wajib dalam sehari. */
+/** Satu nama indah Allah dalam 99 Asmaul Husna beserta arti dan hikmahnya. */
+data class ModelAsmaulHusna(
+    val nomor: Int,
+    val arab: String,
+    val latin: String,
+    val arti: String,
+    val keterangan: String,
+)
+
+/** Satu bacaan dzikir harian (pagi, petang, atau setelah sholat) beserta target hitungannya. */
+data class ModelDzikir(
+    val id: String,
+    val kategori: String,
+    val judul: String,
+    val arab: String,
+    val latin: String,
+    val arti: String,
+    val target: Int,
+    val keutamaan: String,
+)
+
+/** Waktu lima sholat wajib beserta waktu imsak dan terbit dalam sehari. */
 data class ModelWaktuSholat(
     val subuh: String = "-",
     val dzuhur: String = "-",
     val ashar: String = "-",
     val maghrib: String = "-",
     val isya: String = "-",
+    val imsak: String = "04:25",
+    val terbit: String = "05:49",
 ) {
-    /** Daftar berurutan agar mudah diiterasi tampilan dan penjadwal. */
+    /** Daftar lima waktu sholat wajib berurutan untuk tampilan dan penjadwal azan. */
     fun sebagaiDaftar(): List<Pair<String, String>> =
         listOf("Subuh" to subuh, "Dzuhur" to dzuhur, "Ashar" to ashar, "Maghrib" to maghrib, "Isya" to isya)
+
+    /** Daftar lengkap termasuk Imsak dan Terbit untuk tabel jadwal harian. */
+    fun sebagaiDaftarLengkap(): List<Pair<String, String>> =
+        listOf(
+            "Imsak" to imsak,
+            "Subuh" to subuh,
+            "Terbit" to terbit,
+            "Dzuhur" to dzuhur,
+            "Ashar" to ashar,
+            "Maghrib" to maghrib,
+            "Isya" to isya,
+        )
 }

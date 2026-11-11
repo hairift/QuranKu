@@ -3,7 +3,7 @@
 ## Masalah Umum Codex / AI Saat Build App Quran
 
 ### 1. AI SLOP UI (Paling Sering)
-- **Ciri:** Semua layar pakai `Card(elevation=4dp)`, warna ungu, icon emoji 📖, layout membosankan, semua teks center
+- **Ciri:** Semua layar pakai `Card(elevation=4dp)`, warna ungu, icon emoji [emoji], layout membosankan, semua teks center
 - **Koreksi Prompt:** 
   > "UI kamu terlalu AI slop. Ulangi dengan: pakai Scaffold dengan TopAppBar large, gunakan LazyColumn dengan sticky header untuk surah, warna primary #0E5E4D bukan ungu, icon wajib dari material-icons-extended, tambahkan empty state illustration, dan jangan pernah pakai emoji sebagai icon."
 
@@ -25,7 +25,7 @@
 - **Koreksi:** "Hapus semua permission berbahaya. App ini offline-first pakai internal storage (getFilesDir), bukan external. Hanya izinkan INTERNET, FOREGROUND_SERVICE, POST_NOTIFICATIONS, dan SENSOR untuk kiblat."
 
 ### 6. Icon Emoji
-- **Ciri:** `Text("📖")` atau `Icon(\uD83D\uDCC6)`
+- **Ciri:** `Text("[emoji]")` atau `Icon(\uD83D\uDCC6)`
 - **Koreksi:** "DILARANG pakai emoji sebagai icon. Ganti dengan `Icon(Icons.Rounded.MenuBook, ...)` atau import Phosphor Icons. Emoji hanya boleh di dalam teks ayat/terjemahan, bukan UI."
 
 ### 7. Build Gagal Terus
